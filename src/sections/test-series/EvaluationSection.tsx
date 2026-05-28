@@ -1,6 +1,6 @@
-import EvaluationCard from "../../components/EvaluationCard";
+import EvaluationCard from "../../components/test-series/EvaluationCard";
 
-import { evaluationFeatures } from "../../data/evaluationFeatures";
+import { evaluationFeatures } from "../../data/test-series/evaluationFeatures";
 
 const EvaluationSection = () => {
   return (

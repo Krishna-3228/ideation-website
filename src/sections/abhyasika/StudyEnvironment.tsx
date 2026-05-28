@@ -1,6 +1,6 @@
-import StudyEnvironmentCard from "../../components/StudyEnvironmentCard";
+import StudyEnvironmentCard from "../../components/abhyasika/StudyEnvironmentCard";
 
-import { studyEnvironment } from "../../data/studyEnvironment";
+import { studyEnvironment } from "../../data/abhyasika/studyEnvironment";
 
 const StudyEnvironment = () => {
   return (

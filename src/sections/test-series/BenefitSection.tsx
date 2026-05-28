@@ -1,6 +1,6 @@
-import TestBenefitCard from "../../components/TestBenefitCard";
+import TestBenefitCard from "../../components/test-series/TestBenefitCard";
 
-import { testSeriesBenefits } from "../../data/testSeriesBenefits";
+import { testSeriesBenefits } from "../../data/test-series/testSeriesBenefits";
 
 const BenefitsSection = () => {
   return (

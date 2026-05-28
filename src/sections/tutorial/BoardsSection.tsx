@@ -1,6 +1,6 @@
-import BoardCard from "../../components/BoardCard";
+import BoardCard from "../../components/tutorial/BoardCard";
 
-import { boards } from "../../data/boards";
+import { boards } from "../../data/tutorial/boards";
 
 const BoardsSection = () => {
   return (

@@ -1,6 +1,6 @@
-import ProgramCard from "../../components/ProgramCard";
+import ProgramCard from "../../components/integrated-learning/ProgramCard";
 
-import { academicPrograms } from "../../data/academicPrograms";
+import { academicPrograms } from "../../data/integrated-learning/academicPrograms";
 
 const AcademicPrograms = () => {
   return (

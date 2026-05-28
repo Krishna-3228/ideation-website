@@ -1,6 +1,6 @@
-import PublicationCard from "../../components/PublicationCard";
+import PublicationCard from "../../components/journal/PublicationCard";
 
-import { publicationProcess } from "../../data/publicationProcess";
+import { publicationProcess } from "../../data/journal/publicationProcess";
 
 const PublicationProcess = () => {
   return (

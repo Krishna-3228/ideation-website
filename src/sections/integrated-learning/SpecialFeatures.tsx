@@ -1,6 +1,6 @@
-import SpecialFeatureCard from "../../components/SpecialFeatureCard";
+import SpecialFeatureCard from "../../components/integrated-learning/SpecialFeatureCard";
 
-import { specialFeatures } from "../../data/specialFeatures";
+import { specialFeatures } from "../../data/integrated-learning/specialFeatures";
 
 const SpecialFeatures = () => {
   return (

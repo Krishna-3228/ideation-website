@@ -1,6 +1,6 @@
-import WhyChooseCard from "../../components/WhyChooseCard";
+import WhyChooseCard from "../../components/tutorial/WhyChooseCard";
 
-import { tutorialWhyChoose } from "../../data/tutorialWhyChoose";
+import { tutorialWhyChoose } from "../../data/tutorial/tutorialWhyChoose";
 
 const WhyChooseTutorial = () => {
   return (

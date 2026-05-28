@@ -1,6 +1,6 @@
-import ResearchAreaCard from "../../components/ResearchAreaCard";
+import ResearchAreaCard from "../../components/journal/ResearchAreaCard";
 
-import { researchAreas } from "../../data/researchAreas";
+import { researchAreas } from "../../data/journal/researchAreas";
 
 const ResearchAreas = () => {
   return (

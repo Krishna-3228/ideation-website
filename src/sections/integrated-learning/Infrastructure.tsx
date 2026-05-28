@@ -1,6 +1,6 @@
-import InfrastructureCard from "../../components/InfrastructureCard";
+import InfrastructureCard from "../../components/integrated-learning/InfrastructureCard";
 
-import { infrastructure } from "../../data/infrastructure";
+import { infrastructure } from "../../data/integrated-learning/infrastructure";
 
 const Infrastructure = () => {
   return (

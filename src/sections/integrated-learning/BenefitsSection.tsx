@@ -1,6 +1,6 @@
-import BenefitCard from "../../components/BenefitCard";
+import BenefitCard from "../../components/integrated-learning/BenefitCard";
 
-import { benefits } from "../../data/benefits";
+import { benefits } from "../../data/integrated-learning/benefits";
 
 const BenefitsSection = () => {
   return (

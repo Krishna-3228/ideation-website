@@ -1,6 +1,6 @@
-import SpecialProgramCard from "../../components/SpecialProgramCard";
+import SpecialProgramCard from "../../components/tutorial/SpecialProgramCard";
 
-import { specialPrograms } from "../../data/specialPrograms";
+import { specialPrograms } from "../../data/tutorial/specialPrograms";
 
 const SpecialPrograms = () => {
   return (

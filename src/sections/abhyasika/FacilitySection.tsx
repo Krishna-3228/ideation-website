@@ -1,6 +1,6 @@
-import FacilityCard from "../../components/FacilityCard";
+import FacilityCard from "../../components/abhyasika/FacilityCard";
 
-import { abhyasikaFacilities } from "../../data/abhyasikaFacilities";
+import { abhyasikaFacilities } from "../../data/abhyasika/abhyasikaFacilities";
 
 const FacilitiesSection = () => {
   return (

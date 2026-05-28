@@ -1,6 +1,6 @@
-import WhyPublishCard from "../../components/WhyPublishCard";
+import WhyPublishCard from "../../components/journal/WhyPublishCard";
 
-import { whyPublish } from "../../data/whyPublish";
+import { whyPublish } from "../../data/journal/whyPublish";
 
 const WhyPublish = () => {
   return (
