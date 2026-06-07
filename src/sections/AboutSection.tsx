@@ -5,29 +5,17 @@ import activityImg from "../assets/about/activity.jpeg";
 import studentsImg from "../assets/about/students.jpeg";
 
 const stats = [
-  {
-    value: "15+",
-    label: "Years of Service",
-  },
-  {
-    value: "5000+",
-    label: "Students Guided",
-  },
-  {
-    value: "5",
-    label: "Institutions",
-  },
-  {
-    value: "100+",
-    label: "Achievements",
-  },
+  { value: "15+", label: "Years" },
+  { value: "5000+", label: "Students" },
+  { value: "5", label: "Institutions" },
+  { value: "100+", label: "Achievements" },
 ];
 
 export default function AboutSection() {
   return (
     <section
       id="about"
-      className="py-14 md:py-24 bg-white"
+      className="py-14 bg-white"
     >
       <div className="max-w-7xl mx-auto px-6">
 
@@ -36,22 +24,21 @@ export default function AboutSection() {
           subtitle="Shaping Minds Since 2009"
         />
 
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mt-10 md:mt-16">
+        <div className="mt-10 grid lg:grid-cols-2 gap-8 items-center">
 
           {/* Images */}
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3">
 
             <div className="col-span-2">
               <img
                 src={classroomImg}
                 alt="Classroom"
                 className="
+                  h-[260px]
                   w-full
-                  h-48 sm:h-64 md:h-[280px] lg:h-[340px]
                   object-cover
-                  rounded-3xl
-                  shadow-lg
+                  rounded-2xl
                 "
               />
             </div>
@@ -60,11 +47,10 @@ export default function AboutSection() {
               src={activityImg}
               alt="Activity"
               className="
+                h-40
                 w-full
-                h-36 md:h-52
                 object-cover
-                rounded-3xl
-                shadow-lg
+                rounded-2xl
               "
             />
 
@@ -72,11 +58,10 @@ export default function AboutSection() {
               src={studentsImg}
               alt="Students"
               className="
+                h-40
                 w-full
-                h-36 md:h-52
                 object-cover
-                rounded-3xl
-                shadow-lg
+                rounded-2xl
               "
             />
 
@@ -84,126 +69,56 @@ export default function AboutSection() {
 
           {/* Content */}
 
-          <div>
+          {/* Content */}
 
-            <span
-              className="
-                text-blue-600
-                uppercase
-                tracking-wider
-                font-semibold
-                text-sm
-              "
-            >
+          <div className="flex flex-col justify-start">
+
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
               Our Story
-            </span>
+            </p>
 
-            <h3
-              className="
-                mt-4
-                text-3xl md:text-4xl
-                font-bold
-                text-slate-900
-                leading-tight
-              "
-            >
-              Education Beyond
-              <br />
-              Memorisation
+            <h3 className="mt-3 text-3xl font-bold text-slate-900">
+              Education Beyond Memorisation
             </h3>
 
-            <p
-              className="
-                mt-6
-                text-lg
-                text-slate-600
-                leading-relaxed
-              "
-            >
-              Ideation Welfare Society is committed to
-              nurturing young minds through concept-based,
-              integrated, and student-centred education.
+            <p className="mt-4 leading-relaxed text-slate-600">
+              Since 2009, Ideation Welfare Society has nurtured young
+              minds through concept-based learning, academic excellence,
+              mentorship and practical education. Across our institutions,
+              students develop confidence, curiosity and the skills
+              needed for future success.
             </p>
 
-            <p
-              className="
-                mt-4
-                text-lg
-                text-slate-600
-                leading-relaxed
-              "
-            >
-              Through our institutions, we focus on
-              academic excellence, practical learning,
-              research orientation, personality development,
-              and mentorship that prepares students for
-              future challenges.
-            </p>
+            {/* Stats */}
 
-            <p
-              className="
-                mt-4
-                text-lg
-                text-slate-600
-                leading-relaxed
-              "
-            >
-              Since 2009, thousands of students have
-              benefited from our commitment to quality
-              education, dedicated faculty, and a culture
-              that encourages curiosity, confidence, and
-              lifelong learning.
-            </p>
+            <div className="mt-8 grid grid-cols-2 gap-4">
+
+              {stats.map((item) => (
+                <div
+                  key={item.label}
+                  className="
+          rounded-2xl
+          bg-slate-50
+          border
+          border-slate-200
+          p-4
+          text-center
+        "
+                >
+                  <div className="text-3xl font-bold text-blue-600">
+                    {item.value}
+                  </div>
+
+                  <div className="mt-1 text-sm text-slate-600">
+                    {item.label}
+                  </div>
+                </div>
+              ))}
+
+            </div>
 
           </div>
 
-        </div>
-
-        {/* Statistics */}
-
-        <div
-          className="
-            mt-14 md:mt-24
-            grid
-            grid-cols-2
-            lg:grid-cols-4
-            gap-4 md:gap-6
-          "
-        >
-          {stats.map((item) => (
-            <div
-              key={item.label}
-              className="
-                bg-slate-50
-                rounded-2xl
-                p-5 md:p-8
-                text-center
-                border
-                border-slate-100
-              "
-            >
-              <h4
-                className="
-                  text-3xl md:text-4xl
-                  font-bold
-                  text-blue-600
-                "
-              >
-                {item.value}
-              </h4>
-
-              <p
-                className="
-                  mt-2
-                  text-slate-600
-                  font-medium
-                  text-sm md:text-base
-                "
-              >
-                {item.label}
-              </p>
-            </div>
-          ))}
         </div>
 
       </div>

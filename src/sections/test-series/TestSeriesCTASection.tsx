@@ -16,7 +16,7 @@ export default function TestSeriesCTASection() {
           }}
         >
           {/* Overlay */}
-          <div className="absolute inset-0 bg-[#162a6c]/85" />
+          <div className="absolute inset-0 bg-blue-900/85" />
 
           {/* Content */}
           <div className="relative z-10 px-8 py-10 md:px-12 md:py-12">

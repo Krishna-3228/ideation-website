@@ -37,7 +37,7 @@ export default function AbhyasikaHeroSection() {
           className="h-full w-full object-cover"
         />
 
-        <div className="absolute inset-0 bg-[#162a6c]/80" />
+        <div className="absolute inset-0 bg-blue-900/80" />
       </div>
 
       {/* Content */}

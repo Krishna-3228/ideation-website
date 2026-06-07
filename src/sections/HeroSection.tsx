@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 import HeroCarousel from "../components/HeroCarousel";
-import logo from "../assets/logo/logo.png";
 
 export default function HeroSection() {
+  const handleScrollToInstitutions = () => {
+    const element = document.getElementById("institutions");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative overflow-hidden">
       <HeroCarousel />
@@ -28,11 +34,14 @@ export default function HeroSection() {
             </p>
 
             <div className="flex flex-wrap gap-3 mt-6 md:mt-10">
-              <button className="px-5 py-2.5 md:px-6 md:py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition text-sm md:text-base">
+              <button
+                onClick={handleScrollToInstitutions}
+                className="px-5 py-2.5 md:px-6 md:py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition text-sm md:text-base cursor-pointer"
+              >
                 Explore Institutions
               </button>
 
-              <Link to="/contact" className="px-5 py-2.5 md:px-6 md:py-3 border border-white rounded-lg text-white hover:bg-white hover:text-blue-950 transition text-sm md:text-base font-semibold">
+              <Link to="/contact" className="px-5 py-2.5 md:px-6 md:py-3 border border-white rounded-lg text-white hover:bg-white hover:text-blue-900 transition text-sm md:text-base font-semibold">
                 Contact Us
               </Link>
             </div>

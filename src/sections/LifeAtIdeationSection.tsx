@@ -2,45 +2,29 @@ import SectionHeading from "../components/SectionHeading";
 import { galleryItems } from "../data/gallery";
 
 const LifeAtIdeationSection = () => {
-  const [classroom, lab, study, community] = galleryItems;
-
   return (
-    <section id="life" className="py-14 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section
+      id="life"
+      className="py-14 bg-white"
+    >
+      <div className="max-w-7xl mx-auto px-6">
 
         <SectionHeading
           eyebrow="Life at Ideation"
           title="More Than Just a Classroom"
-          subtitle="We believe in holistic development. From interactive classes and lab sessions to focused study environments and community activities, learning at Ideation extends far beyond textbooks."
+          subtitle="Interactive learning, practical experiences, focused study and a supportive community environment."
         />
 
-        {/* Mobile / Tablet: simple grid */}
-        <div className="mt-10 md:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-5 lg:hidden">
-          {[classroom, study, lab, community].map((item) => (
-            <GalleryBlock
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+          {galleryItems.map((item) => (
+            <GalleryCard
               key={item.title}
               image={item.image}
               title={item.title}
               category={item.category}
-              height="h-56 sm:h-72"
             />
           ))}
-        </div>
-
-        {/* Desktop: original masonry layout */}
-        <div className="hidden lg:grid lg:grid-cols-3 gap-6 mt-16">
-
-          {/* Left Column */}
-          <div className="space-y-6">
-            <GalleryBlock image={classroom.image} title={classroom.title} category={classroom.category} height="h-[420px]" />
-            <GalleryBlock image={study.image} title={study.title} category={study.category} height="h-[280px]" />
-          </div>
-
-          {/* Center Column */}
-          <GalleryBlock image={lab.image} title={lab.title} category={lab.category} height="h-[720px]" />
-
-          {/* Right Column */}
-          <GalleryBlock image={community.image} title={community.title} category={community.category} height="h-[720px]" />
 
         </div>
 
@@ -49,35 +33,33 @@ const LifeAtIdeationSection = () => {
   );
 };
 
-type GalleryBlockProps = {
+type GalleryCardProps = {
   image: string;
   title: string;
   category: string;
-  height: string;
 };
 
-function GalleryBlock({
+function GalleryCard({
   image,
   title,
   category,
-  height,
-}: GalleryBlockProps) {
+}: GalleryCardProps) {
   return (
     <div
-      className={`
+      className="
         relative
+        h-72
         overflow-hidden
-        rounded-3xl
+        rounded-2xl
         group
-        ${height}
-      `}
+      "
     >
       <img
         src={image}
         alt={title}
         className="
-          w-full
           h-full
+          w-full
           object-cover
           transition-transform
           duration-700
@@ -91,7 +73,7 @@ function GalleryBlock({
           inset-0
           bg-gradient-to-t
           from-black/80
-          via-black/30
+          via-black/20
           to-transparent
         "
       />
@@ -101,15 +83,15 @@ function GalleryBlock({
           absolute
           bottom-0
           left-0
-          p-8
+          p-5
           text-white
         "
       >
         <p
           className="
+            text-xs
             uppercase
             tracking-[0.2em]
-            text-sm
             text-blue-300
             font-semibold
           "
@@ -120,7 +102,7 @@ function GalleryBlock({
         <h3
           className="
             mt-2
-            text-2xl
+            text-xl
             font-bold
             leading-tight
           "
@@ -128,6 +110,7 @@ function GalleryBlock({
           {title}
         </h3>
       </div>
+
     </div>
   );
 }

@@ -8,21 +8,21 @@ const highlights = [
   {
     value: "98%",
     title: "District Topper",
-    description: "CBSE Class 10 • 2023-24",
+    description: "CBSE 2023-24",
   },
   {
     value: "97%",
     title: "District Topper",
-    description: "CBSE Class 10 • 2022-23",
+    description: "CBSE 2022-23",
   },
   {
     value: "98.60%",
-    title: "Highest Test Series Score",
-    description: "SSC Test Series 2026",
+    title: "Test Series",
+    description: "Highest Score",
   },
   {
     value: "15+",
-    title: "Years of Excellence",
+    title: "Years",
     description: "Since 2009",
   },
 ];
@@ -44,87 +44,83 @@ const posters = [
 
 export default function AchievementsSection() {
   return (
-    <section id="achievements" className="py-14 md:py-24 bg-slate-50">
+    <section
+      id="achievements"
+      className="bg-slate-50 py-14"
+    >
       <div className="max-w-7xl mx-auto px-6">
 
         <SectionHeading
           eyebrow="Achievements"
           title="Building Academic Excellence Since 2009"
-          subtitle="Our students consistently excel in board examinations, test series programs, and academic competitions."
+          subtitle="Consistent academic success across board examinations, test series programmes and student development initiatives."
         />
 
-        {/* Achievement Highlights */}
+        {/* Posters */}
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
-          {highlights.map((item) => (
-            <div
-              key={item.title}
-              className="
-                bg-white
-                rounded-3xl
-                p-8
-                shadow-md
-                border border-slate-100
-                text-center
-                hover:-translate-y-1
-                hover:shadow-xl
-                transition-all
-              "
-            >
-              <div className="text-4xl font-black text-orange-500">
-                {item.value}
-              </div>
+        <div className="mt-10 grid gap-5 lg:grid-cols-3 items-start">
 
-              <h3 className="mt-4 text-xl font-bold text-slate-900">
-                {item.title}
-              </h3>
-
-              <p className="mt-2 text-slate-500">
-                {item.description}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Featured Results */}
-
-        <div className="mt-16 md:mt-24 text-center">
-          <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
-            Featured Student Success Stories
-          </h3>
-
-          <p className="mt-3 text-slate-600">
-            Celebrating the achievements of our students across various programs.
-          </p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 md:mt-12">
           {posters.map((poster) => (
             <div
               key={poster.title}
               className="
-                bg-white
-                rounded-3xl
                 overflow-hidden
-                shadow-lg
-                hover:shadow-2xl
-                hover:-translate-y-2
+                rounded-2xl
+                bg-white
+                border
+                border-slate-200
+                shadow-sm
                 transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:shadow-lg
               "
             >
               <img
                 src={poster.image}
                 alt={poster.title}
-                className="w-full h-auto object-cover"
+                className="
+                  w-full
+                  h-auto
+                  block
+                "
               />
-
-              <div className="p-5">
-                <h4 className="font-semibold text-slate-900">
-                  {poster.title}
-                </h4>
-              </div>
             </div>
           ))}
+
+        </div>
+
+        {/* Stats */}
+
+        <div className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-4">
+
+          {highlights.map((item) => (
+            <div
+              key={item.title}
+              className="
+                rounded-xl
+                border
+                border-slate-200
+                bg-white
+                p-4
+                text-center
+                shadow-sm
+              "
+            >
+              <div className="text-2xl font-bold text-blue-600">
+                {item.value}
+              </div>
+
+              <h3 className="mt-1 text-sm font-semibold text-slate-900">
+                {item.title}
+              </h3>
+
+              <p className="mt-1 text-xs text-slate-500">
+                {item.description}
+              </p>
+            </div>
+          ))}
+
         </div>
 
       </div>

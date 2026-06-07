@@ -114,9 +114,9 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
 
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <Icon className="w-5 h-5 text-[#1d2b6b]" />
+              <Icon className="w-5 h-5 text-blue-900" />
 
-              <h3 className="text-lg font-bold text-[#1d2b6b]">
+              <h3 className="text-lg font-bold text-blue-900">
                 {benefit.title}
               </h3>
             </div>

@@ -1,77 +1,176 @@
+import { MapPin, Mail, Phone } from "lucide-react";
+
 const ContactForm = () => {
   return (
-    <section className="bg-slate-50 py-14 md:py-24">
+    <section className="bg-slate-50 py-12">
+      <div className="max-w-5xl mx-auto px-8 lg:px-12">
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-[0.75fr_1.25fr] gap-8 items-start">
 
           {/* LEFT SIDE */}
+
           <div>
 
-            <p className="text-orange-500 font-semibold uppercase tracking-wider">
+            <p className="text-orange-500 font-semibold uppercase tracking-[0.2em] text-sm">
               Contact Ideation Welfare Society
             </p>
 
-            <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold text-blue-950 leading-tight">
-
-              Let’s Start
-              Your Academic Journey
-
+            <h1 className="mt-3 text-4xl md:text-5xl font-bold text-slate-950 leading-tight">
+              Let&apos;s Start Your
+              <br />
+              Academic Journey
             </h1>
 
-            <p className="mt-8 text-lg text-gray-600 leading-relaxed">
-
-              Reach out to us for admissions,
-              academic guidance,
-              institution enquiries,
-              or research-related communication.
-
+            <p className="mt-5 text-slate-600 leading-relaxed">
+              Reach out for admissions, academic guidance,
+              institution enquiries and programme information.
             </p>
 
-            {/* CONTACT INFO */}
-            <div className="mt-12 space-y-8">
+            {/* Contact Cards */}
 
-              <div>
+            <div className="mt-8 space-y-4">
 
-                <h3 className="text-2xl font-bold text-blue-950">
-                  Contact Numbers
-                </h3>
+              {/* Phone */}
 
-                <p className="mt-3 text-gray-600">
-                  +91 9657778471
-                </p>
+              <div
+                className="
+                  bg-slate-100
+                  border
+                  border-slate-200
+                  rounded-2xl
+                  p-5
+                  shadow-sm
+                "
+              >
+                <div className="flex items-start gap-3">
 
-                <p className="text-gray-600">
-                  +91 9022443373
-                </p>
+                  <div
+                    className="
+                      h-10
+                      w-10
+                      rounded-xl
+                      bg-white
+                      flex
+                      items-center
+                      justify-center
+                      shadow-sm
+                    "
+                  >
+                    <Phone
+                      size={20}
+                      className="text-blue-600"
+                    />
+                  </div>
 
+                  <div>
+                    <h3 className="font-semibold text-slate-900">
+                      Call Us
+                    </h3>
+
+                    <p className="text-sm text-slate-600 mt-1">
+                      +91 96577 78471
+                    </p>
+
+                    <p className="text-sm text-slate-600">
+                      +91 90224 43373
+                    </p>
+                  </div>
+
+                </div>
               </div>
 
-              <div>
+              {/* Email */}
 
-                <h3 className="text-2xl font-bold text-blue-950">
-                  Email Address
-                </h3>
+              <div
+                className="
+                  bg-slate-100
+                  border
+                  border-slate-200
+                  rounded-2xl
+                  p-5
+                  shadow-sm
+                "
+              >
+                <div className="flex items-start gap-3">
 
-                <p className="mt-3 text-gray-600">
-                  ideation@example.com
-                </p>
+                  <div
+                    className="
+                      h-10
+                      w-10
+                      rounded-xl
+                      bg-white
+                      flex
+                      items-center
+                      justify-center
+                      shadow-sm
+                    "
+                  >
+                    <Mail
+                      size={20}
+                      className="text-blue-600"
+                    />
+                  </div>
 
+                  <div>
+                    <h3 className="font-semibold text-slate-900">
+                      Email
+                    </h3>
+
+                    <p className="text-sm text-slate-600 mt-1">
+                      ideation@example.com
+                    </p>
+                  </div>
+
+                </div>
               </div>
 
-              <div>
+              {/* Location */}
 
-                <h3 className="text-2xl font-bold text-blue-950">
-                  Location
-                </h3>
+              <div
+                className="
+                  bg-slate-100
+                  border
+                  border-slate-200
+                  rounded-2xl
+                  p-5
+                  shadow-sm
+                "
+              >
+                <div className="flex items-start gap-3">
 
-                <p className="mt-3 text-gray-600 leading-relaxed">
-                  Ashok Colony,
-                  Morshi Road,
-                  Amravati
-                </p>
+                  <div
+                    className="
+                      h-10
+                      w-10
+                      rounded-xl
+                      bg-white
+                      flex
+                      items-center
+                      justify-center
+                      shadow-sm
+                    "
+                  >
+                    <MapPin
+                      size={20}
+                      className="text-blue-600"
+                    />
+                  </div>
 
+                  <div>
+                    <h3 className="font-semibold text-slate-900">
+                      Visit Us
+                    </h3>
+
+                    <p className="text-sm text-slate-600 mt-1">
+                      Ashok Colony,
+                      <br />
+                      Morshi Road,
+                      <br />
+                      Amravati
+                    </p>
+                  </div>
+
+                </div>
               </div>
 
             </div>
@@ -79,107 +178,164 @@ const ContactForm = () => {
           </div>
 
           {/* RIGHT SIDE */}
+
           <div>
 
-            <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-lg border border-gray-100">
+            <div
+              className="
+                bg-blue-50
+                border
+                border-blue-100
+                rounded-2xl
+                shadow-lg
+                p-6 md:p-8
+              "
+            >
 
-              <h2 className="text-3xl font-bold text-blue-950">
+              <h2 className="text-3xl font-bold text-slate-950">
                 Send Us Your Enquiry
               </h2>
 
-              <p className="mt-4 text-gray-600 leading-relaxed">
-
+              <p className="mt-3 text-slate-600">
                 Fill out the form below and our team
                 will get back to you shortly.
-
               </p>
 
-              {/* FORM */}
-              <form className="mt-10 space-y-6">
+              <form className="mt-8 space-y-5">
 
                 <div>
-
-                  <label className="block mb-2 font-medium text-blue-950">
+                  <label className="block mb-2 font-medium text-slate-900">
                     Full Name
                   </label>
 
                   <input
                     type="text"
                     placeholder="Enter your name"
-                    className="w-full rounded-xl border border-gray-300 px-4 py-4 outline-none focus:ring-2 focus:ring-blue-950"
+                    className="
+                      w-full
+                      rounded-xl
+                      border
+                      border-slate-300
+                      bg-white
+                      px-4
+                      py-3
+                      focus:outline-none
+                      focus:ring-2
+                      focus:ring-blue-600
+                    "
                   />
-
                 </div>
 
                 <div>
-
-                  <label className="block mb-2 font-medium text-blue-950">
+                  <label className="block mb-2 font-medium text-slate-900">
                     Phone Number
                   </label>
 
                   <input
                     type="tel"
                     placeholder="Enter phone number"
-                    className="w-full rounded-xl border border-gray-300 px-4 py-4 outline-none focus:ring-2 focus:ring-blue-950"
+                    className="
+                      w-full
+                      rounded-xl
+                      border
+                      border-slate-300
+                      bg-white
+                      px-4
+                      py-3
+                      focus:outline-none
+                      focus:ring-2
+                      focus:ring-blue-600
+                    "
                   />
-
                 </div>
 
                 <div>
-
-                  <label className="block mb-2 font-medium text-blue-950">
+                  <label className="block mb-2 font-medium text-slate-900">
                     Email Address
                   </label>
 
                   <input
                     type="email"
                     placeholder="Enter email address"
-                    className="w-full rounded-xl border border-gray-300 px-4 py-4 outline-none focus:ring-2 focus:ring-blue-950"
+                    className="
+                      w-full
+                      rounded-xl
+                      border
+                      border-slate-300
+                      bg-white
+                      px-4
+                      py-3
+                      focus:outline-none
+                      focus:ring-2
+                      focus:ring-blue-600
+                    "
                   />
-
                 </div>
 
                 <div>
-
-                  <label className="block mb-2 font-medium text-blue-950">
+                  <label className="block mb-2 font-medium text-slate-900">
                     Institution Interested In
                   </label>
 
                   <select
-                    className="w-full rounded-xl border border-gray-300 px-4 py-4 outline-none focus:ring-2 focus:ring-blue-950 bg-white"
+                    className="
+                      w-full
+                      rounded-xl
+                      border
+                      border-slate-300
+                      bg-white
+                      px-4
+                      py-3
+                      focus:outline-none
+                      focus:ring-2
+                      focus:ring-blue-600
+                    "
                   >
-
                     <option>Integrated Learning</option>
-
                     <option>Tutorial</option>
-
                     <option>Test Series</option>
-
                     <option>Abhyasika</option>
-
                     <option>Journal</option>
-
                   </select>
-
                 </div>
 
                 <div>
-
-                  <label className="block mb-2 font-medium text-blue-950">
+                  <label className="block mb-2 font-medium text-slate-900">
                     Message
                   </label>
 
                   <textarea
-                    rows={5}
+                    rows={4}
                     placeholder="Write your message..."
-                    className="w-full rounded-xl border border-gray-300 px-4 py-4 outline-none focus:ring-2 focus:ring-blue-950 resize-none"
+                    className="
+                      w-full
+                      rounded-xl
+                      border
+                      border-slate-300
+                      bg-white
+                      px-4
+                      py-3
+                      resize-none
+                      focus:outline-none
+                      focus:ring-2
+                      focus:ring-blue-600
+                    "
                   />
-
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-950 hover:bg-blue-900 transition text-white px-8 py-4 rounded-xl font-semibold"
+                  className="
+                    w-full
+                    rounded-xl
+                    bg-blue-950
+                    px-6
+                    py-3
+                    font-semibold
+                    text-white
+                    transition
+                    hover:bg-blue-900
+                  "
                 >
                   Submit Enquiry
                 </button>
@@ -193,7 +349,6 @@ const ContactForm = () => {
         </div>
 
       </div>
-
     </section>
   );
 };

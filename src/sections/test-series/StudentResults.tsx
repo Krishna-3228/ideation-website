@@ -10,7 +10,7 @@ export default function StudentResultsSection() {
             Student Results
           </p>
 
-          <h2 className="mb-4 text-3xl font-bold text-[#162a6c] md:text-4xl">
+          <h2 className="mb-4 text-3xl font-bold text-blue-900 md:text-4xl">
             Consistent Performance Through Structured Practice
           </h2>
 
@@ -35,7 +35,7 @@ export default function StudentResultsSection() {
           <div>
             <div className="space-y-5">
               <div className="rounded-2xl border border-slate-200 bg-white p-5">
-                <h3 className="mb-2 text-lg font-semibold text-[#162a6c]">
+                <h3 className="mb-2 text-lg font-semibold text-blue-900">
                   Performance Tracking
                 </h3>
 
@@ -47,7 +47,7 @@ export default function StudentResultsSection() {
               </div>
 
               <div className="rounded-2xl border border-slate-200 bg-white p-5">
-                <h3 className="mb-2 text-lg font-semibold text-[#162a6c]">
+                <h3 className="mb-2 text-lg font-semibold text-blue-900">
                   Exam Confidence
                 </h3>
 
@@ -59,7 +59,7 @@ export default function StudentResultsSection() {
               </div>
 
               <div className="rounded-2xl border border-slate-200 bg-white p-5">
-                <h3 className="mb-2 text-lg font-semibold text-[#162a6c]">
+                <h3 className="mb-2 text-lg font-semibold text-blue-900">
                   Real Academic Outcomes
                 </h3>
 

@@ -44,7 +44,7 @@ export default function WhyTestSeriesSection() {
             Why Test Series Matters
           </p>
 
-          <h2 className="mb-4 text-3xl md:text-4xl font-bold text-[#162a6c]">
+          <h2 className="mb-4 text-3xl md:text-4xl font-bold text-blue-900">
             Regular Testing Creates Better Results
           </h2>
 
@@ -59,7 +59,7 @@ export default function WhyTestSeriesSection() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           {/* Left */}
           <div>
-            <div className="rounded-3xl bg-[#162a6c] p-8 text-white">
+            <div className="rounded-3xl bg-blue-900 p-8 text-white">
               <h3 className="mb-4 text-3xl font-bold">
                 Practice Like The Real Exam
               </h3>
@@ -106,7 +106,7 @@ export default function WhyTestSeriesSection() {
                     />
                   </div>
 
-                  <h3 className="mb-2 text-xl font-semibold text-[#162a6c]">
+                  <h3 className="mb-2 text-xl font-semibold text-blue-900">
                     {benefit.title}
                   </h3>
 

@@ -1,5 +1,46 @@
 @import "tailwindcss";
 
+@theme {
+  /* Royal / Deep Blue from the logo figures */
+  --color-blue-50: #f5f7fa;
+  --color-blue-100: #e2e7f1;
+  --color-blue-200: #bac7e1;
+  --color-blue-300: #90a6d5;
+  --color-blue-400: #6284cc;
+  --color-blue-500: #3563c1;
+  --color-blue-600: #244b9b; /* logo blue */
+  --color-blue-700: #203c74; /* logo blue darker */
+  --color-blue-800: #192b50;
+  --color-blue-900: #111a2e; /* logo deep blue */
+  --color-blue-950: #0c111d; /* logo deepest blue */
+
+  /* Orange / Coral from the star and center circle */
+  --color-orange-50: #faf6f5;
+  --color-orange-100: #f4e8e4;
+  --color-orange-200: #eacbc2;
+  --color-orange-300: #e4ad9b;
+  --color-orange-400: #e18c71;
+  --color-orange-500: #e26a43; /* logo orange */
+  --color-orange-600: #c84d25;
+  --color-orange-700: #943d21;
+  --color-orange-800: #632c1a;
+  --color-orange-900: #351910;
+  --color-orange-950: #1f0f0a;
+
+  /* Sky Blue from the collar / hat accents */
+  --color-sky-50: #f4f9fa;
+  --color-sky-100: #e2eff4;
+  --color-sky-200: #b8deec;
+  --color-sky-300: #88d0ea;
+  --color-sky-400: #53c4ed; /* logo collar sky blue */
+  --color-sky-500: #2ab2e3;
+  --color-sky-600: #1e92bc;
+  --color-sky-700: #1b6e8d;
+  --color-sky-800: #154c60;
+  --color-sky-900: #0e2a35;
+  --color-sky-950: #091a20;
+}
+
 /* :root {
   --text: #6b6375;
   --text-h: #08060d;

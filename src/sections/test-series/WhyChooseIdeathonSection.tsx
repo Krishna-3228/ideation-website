@@ -31,7 +31,7 @@ export default function WhyChooseIdeationSection() {
             What Makes Ideation Different
           </p>
 
-          <h2 className="mb-3 text-3xl font-bold text-[#162a6c] md:text-4xl">
+          <h2 className="mb-3 text-3xl font-bold text-blue-900 md:text-4xl">
             Structured Practice With Real Results
           </h2>
 
@@ -58,7 +58,7 @@ export default function WhyChooseIdeationSection() {
                 hover:shadow-lg
               "
             >
-              <h3 className="mb-2 text-lg font-semibold text-[#162a6c]">
+              <h3 className="mb-2 text-lg font-semibold text-blue-900">
                 {feature.title}
               </h3>
 
@@ -70,7 +70,7 @@ export default function WhyChooseIdeationSection() {
         </div>
 
         {/* Coverage Strip */}
-        <div className="mt-8 rounded-3xl bg-[#162a6c] p-6 text-white">
+        <div className="mt-8 rounded-3xl bg-blue-900 p-6 text-white">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <p className="text-sm uppercase tracking-[0.2em] text-orange-300">

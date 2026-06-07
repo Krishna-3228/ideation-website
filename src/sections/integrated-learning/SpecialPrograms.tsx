@@ -44,7 +44,7 @@ export default function SpecialProgrammesSection() {
             Beyond The Classroom
           </p>
 
-          <h2 className="mt-3 text-3xl md:text-4xl font-bold text-[#1d2b6b]">
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold text-blue-900">
             Special Programmes Included
           </h2>
 
@@ -91,7 +91,7 @@ export default function SpecialProgrammesSection() {
                   <Icon className="w-6 h-6 text-orange-500" />
                 </div>
 
-                <h3 className="mt-4 text-sm font-semibold text-[#1d2b6b] leading-snug">
+                <h3 className="mt-4 text-sm font-semibold text-blue-900 leading-snug">
                   {programme.title}
                 </h3>
               </div>

@@ -42,7 +42,7 @@ export default function WhyChooseAbhyasikaSection() {
             Why Students Choose Abhyasika
           </p>
 
-          <h2 className="text-3xl font-bold text-[#162a6c] md:text-4xl">
+          <h2 className="text-3xl font-bold text-blue-900 md:text-4xl">
             A Structured Space For Consistent Learning
           </h2>
 
@@ -92,7 +92,7 @@ export default function WhyChooseAbhyasikaSection() {
                   />
                 </div>
 
-                <h3 className="mb-3 text-lg font-semibold text-[#162a6c]">
+                <h3 className="mb-3 text-lg font-semibold text-blue-900">
                   {feature.title}
                 </h3>
 

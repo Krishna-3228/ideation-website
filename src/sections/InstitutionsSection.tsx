@@ -1,131 +1,168 @@
 import { Link } from "react-router-dom";
+
 import institutionsBg from "../assets/institution-section-bg.jpeg";
 
 const institutions = [
   {
-    id: "tutorial",
-    title: "Ideation Tutorial",
-    tagline: "8th – 12th Standard",
-    description:
-      "Concept-based coaching classes across IB, IGCSE, ICSE, CBSE and State Board.",
+    title: "Tutorial",
+    subtitle: "8th–12th Standard",
+    description: "Concept-based coaching",
     route: "/institutions/tutorial",
   },
   {
-    id: "integrated-learning",
-    title: "Integrated Learning Program",
-    tagline: "5th – 7th Standard",
-    description:
-      "Building strong foundations through curiosity, exploration, and concept-based learning.",
+    title: "Integrated Learning",
+    subtitle: "5th–7th Standard",
+    description: "Strong academic foundations",
     route: "/institutions/integrated-learning",
   },
   {
-    id: "abhyasika",
-    title: "Ideation Abhyasika",
-    tagline: "Structured Study Environment",
-    description:
-      "A disciplined academic environment focused on productive study habits and guidance.",
+    title: "Abhyasika",
+    subtitle: "Study Environment",
+    description: "Focused learning spaces",
     route: "/institutions/abhyasika",
+  },
+  {
+    title: "Test Series",
+    subtitle: "SSC Preparation",
+    description: "Regular testing & evaluation",
+    route: "/institutions/test-series",
   },
 ];
 
-export default function InstitutionsSection() {
+const InstitutionsSection = () => {
   return (
     <section
       id="institutions"
-      className="relative py-16 md:py-24 lg:py-28 overflow-hidden"
+      className="relative overflow-hidden py-14"
       style={{
         backgroundImage: `url(${institutionsBg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      {/* Dark Overlay */}
+      {/* Overlay */}
 
       <div className="absolute inset-0 bg-slate-950/80" />
-
-      {/* Content */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
 
         {/* Heading */}
 
-        <div className="text-center max-w-3xl mx-auto">
-          <p className="uppercase tracking-[0.25em] text-blue-300 font-semibold">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-300">
             Our Institutions
           </p>
 
-          <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-            Educational Programs Under
-            <span className="block">
-              Ideation Welfare Society
-            </span>
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold text-white">
+            Learning Pathways For Every Student
           </h2>
 
-          <p className="mt-4 md:mt-6 text-slate-300 text-base md:text-lg leading-relaxed">
-            A diverse ecosystem of educational initiatives dedicated to
-            academic excellence, student development, concept-based
-            learning, and lifelong growth.
+          <p className="mt-4 text-slate-300">
+            From foundation programmes to coaching, study support and
+            examination preparation.
           </p>
         </div>
 
         {/* Cards */}
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 md:mt-20">
+        <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-5">
 
-          {institutions.map((institution, index) => (
+          {institutions.map((institution) => (
             <Link
-              key={institution.id}
+              key={institution.route}
               to={institution.route}
               className="
                 group
+                aspect-square
+                rounded-2xl
                 bg-white/95
                 backdrop-blur-sm
-                rounded-3xl
-                p-8
-                hover:-translate-y-2
+                p-5
+                flex
+                flex-col
+                justify-between
+                border
+                border-white/20
+                shadow-lg
                 transition-all
                 duration-300
-                shadow-xl
+                hover:-translate-y-1
+                hover:shadow-2xl
               "
             >
-              {/* Number */}
+              {/* Accent */}
 
-              <div className="text-6xl font-black text-blue-100">
-                {String(index + 1).padStart(2, "0")}
+              <div
+                className="
+                  h-1.5
+                  w-12
+                  rounded-full
+                  bg-blue-600
+                  transition-all
+                  duration-300
+                  group-hover:w-20
+                "
+              />
+
+              {/* Content */}
+
+              <div>
+                <p
+                  className="
+                    text-xs
+                    uppercase
+                    tracking-[0.15em]
+                    text-blue-600
+                    font-semibold
+                  "
+                >
+                  {institution.subtitle}
+                </p>
+
+                <h3
+                  className="
+                    mt-3
+                    text-xl
+                    font-bold
+                    text-slate-900
+                    leading-tight
+                  "
+                >
+                  {institution.title}
+                </h3>
+
+                <p
+                  className="
+                    mt-3
+                    text-sm
+                    text-slate-600
+                  "
+                >
+                  {institution.description}
+                </p>
               </div>
-
-              {/* Tagline */}
-
-              <p className="mt-6 text-sm uppercase tracking-widest text-blue-600 font-semibold">
-                {institution.tagline}
-              </p>
-
-              {/* Title */}
-
-              <h3 className="mt-2 text-2xl font-bold text-slate-900">
-                {institution.title}
-              </h3>
-
-              {/* Description */}
-
-              <p className="mt-4 text-slate-600 leading-relaxed">
-                {institution.description}
-              </p>
 
               {/* CTA */}
 
               <div
                 className="
-                  mt-8
-                  inline-flex
+                  flex
                   items-center
                   gap-2
                   text-blue-600
                   font-semibold
+                  text-sm
                 "
               >
-                Explore Program
-                <span className="group-hover:translate-x-1 transition-transform">
+                Explore
+
+                <span
+                  className="
+                    transition-transform
+                    duration-300
+                    group-hover:translate-x-1
+                  "
+                >
                   →
                 </span>
               </div>
@@ -134,33 +171,9 @@ export default function InstitutionsSection() {
 
         </div>
 
-        {/* Bottom CTA */}
-
-        <div className="text-center mt-14">
-          <Link
-            to="/about"
-            className="
-              inline-flex
-              items-center
-              gap-2
-              border
-              border-white/30
-              px-6
-              py-3
-              rounded-xl
-              text-white
-              font-semibold
-              hover:bg-white
-              hover:text-slate-900
-              transition
-            "
-          >
-            Learn More About The Society
-            <span>→</span>
-          </Link>
-        </div>
-
       </div>
     </section>
   );
-}
+};
+
+export default InstitutionsSection;

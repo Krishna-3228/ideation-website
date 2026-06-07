@@ -70,7 +70,7 @@ export default function StudyEnvironmentSection() {
         >
           {/* Overlay */}
 
-          <div className="absolute inset-0 bg-[#162a6c]/85" />
+          <div className="absolute inset-0 bg-blue-900/85" />
 
           <div className="relative z-10 px-6 py-10 md:px-10 md:py-12">
             {/* Heading */}
@@ -126,7 +126,7 @@ export default function StudyEnvironmentSection() {
 
         <div className="mt-8">
           <div className="mb-6 text-center">
-            <h3 className="text-2xl font-bold text-[#162a6c]">
+            <h3 className="text-2xl font-bold text-blue-900">
               Inside Ideation Abhyasika
             </h3>
 

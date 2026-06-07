@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 import heroImage from "../../assets/test-series/test-series-hero.jpeg";
 
 export default function HeroSection() {
+  const handleScrollToHowItWorks = () => {
+    const element = document.getElementById("how-it-works");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative overflow-hidden">
       {/* Background Image */}
@@ -15,7 +22,7 @@ export default function HeroSection() {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-[#0f1f5c]/75" />
+      <div className="absolute inset-0 bg-blue-950/75" />
 
       {/* Content */}
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
@@ -59,12 +66,12 @@ export default function HeroSection() {
 
             {/* CTA */}
             <div className="flex flex-wrap gap-4">
-              <Link
-                to="/contact"
-                className="rounded-xl bg-orange-500 px-8 py-4 text-sm font-semibold text-white transition hover:bg-orange-600"
+              <button
+                onClick={handleScrollToHowItWorks}
+                className="rounded-xl bg-orange-500 px-8 py-4 text-sm font-semibold text-white transition hover:bg-orange-600 cursor-pointer"
               >
                 View Schedule
-              </Link>
+              </button>
 
               <Link
                 to="/contact"
@@ -78,7 +85,7 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom Stats */}
-      <div className="relative border-t border-white/10 bg-[#0b173f]/95 backdrop-blur-sm">
+      <div className="relative border-t border-white/10 bg-blue-950/95 backdrop-blur-sm">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-6 py-6 md:grid-cols-4 lg:px-8">
           <div>
             <p className="text-2xl font-bold text-orange-400">4</p>

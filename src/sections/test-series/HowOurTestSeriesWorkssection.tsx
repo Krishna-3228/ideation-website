@@ -41,6 +41,7 @@ const steps = [
 export default function HowOurTestSeriesWorksSection() {
   return (
     <section
+      id="how-it-works"
       className="relative overflow-hidden py-16 lg:py-20"
       style={{
         backgroundImage: `url(${processBg})`,
@@ -138,7 +139,7 @@ export default function HowOurTestSeriesWorksSection() {
                             items-center
                             justify-center
                             rounded-full
-                            bg-[#162a6c]
+                            bg-blue-900
                             text-sm
                             font-bold
                             text-white

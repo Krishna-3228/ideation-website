@@ -10,13 +10,13 @@ const TutorialHero = () => {
           {/* Left */}
 
           <div>
-            <p className="uppercase tracking-[0.25em] text-blue-600 font-semibold text-sm">
+            <p className="uppercase tracking-[0.25em] text-blue-900 font-semibold text-sm">
               Ideation Welfare Society
             </p>
 
-            <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
+            <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 leading-tight">
               Ideation
-              <span className="block text-blue-700">
+              <span className="block text-orange-600">
                 Tutorial
               </span>
             </h1>
@@ -45,8 +45,8 @@ const TutorialHero = () => {
                     px-3
                     py-1.5
                     rounded-full
-                    bg-blue-100
-                    text-blue-800
+                    bg-sky-100
+                    text-blue-900
                     text-sm
                     font-medium
                   "
@@ -62,7 +62,7 @@ const TutorialHero = () => {
                 className="
                   px-5
                   py-2.5
-                  bg-blue-700
+                  bg-blue-900
                   text-white
                   rounded-lg
                   font-semibold
@@ -79,8 +79,8 @@ const TutorialHero = () => {
                   px-5
                   py-2.5
                   border
-                  border-blue-950
-                  text-blue-950
+                  border-blue-900
+                  text-blue-900
                   rounded-lg
                   font-semibold
                   hover:bg-blue-50

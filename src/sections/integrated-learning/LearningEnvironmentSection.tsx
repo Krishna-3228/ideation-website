@@ -36,7 +36,7 @@ export default function LearningEnvironmentSection() {
             Learning Environment
           </p>
 
-          <h2 className="mt-3 text-3xl md:text-4xl font-bold text-[#1d2b6b]">
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold text-blue-900">
             Spaces Designed For Learning
           </h2>
 
@@ -90,7 +90,7 @@ export default function LearningEnvironmentSection() {
 
               <div className="p-6">
 
-                <h3 className="text-xl font-bold text-[#1d2b6b]">
+                <h3 className="text-xl font-bold text-blue-900">
                   {facility.title}
                 </h3>
 
