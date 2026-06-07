@@ -2,33 +2,53 @@ import { Link } from "react-router-dom";
 
 type InstitutionCardProps = {
   title: string;
+  tagline: string;
   description: string;
   route: string;
+  icon: string;
+  color: string;
+  image: string;
 };
 
 const InstitutionCard = ({
   title,
+  tagline,
   description,
   route,
+  icon,
+  color,
+  image,
 }: InstitutionCardProps) => {
   return (
-    <div className="bg-white rounded-2xl shadow-md p-8 border border-gray-100 hover:shadow-xl transition duration-300">
+    <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <img
+          src={institution.image}
+          alt={institution.title}
+          className="w-full h-[400px] object-cover rounded-3xl"
+        />
+      </div>
 
-      <h3 className="text-2xl font-bold text-blue-950">
-        {title}
-      </h3>
+      <div>
+        <p className="text-blue-600 font-semibold uppercase">
+          {institution.tagline}
+        </p>
 
-      <p className="mt-4 text-gray-600 leading-relaxed">
-        {description}
-      </p>
+        <h3 className="text-4xl font-bold mt-2">
+          {institution.title}
+        </h3>
 
-      <Link
-        to={route}
-        className="inline-block mt-6 text-orange-500 font-semibold hover:text-orange-600"
-      >
-        Learn More →
-      </Link>
+        <p className="mt-6 text-slate-600 leading-relaxed">
+          {institution.description}
+        </p>
 
+        <Link
+          to={institution.route}
+          className="inline-block mt-8"
+        >
+          Explore Program →
+        </Link>
+      </div>
     </div>
   );
 };

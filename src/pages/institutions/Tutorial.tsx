@@ -1,8 +1,8 @@
 import TutorialHero from "../../sections/tutorial/TutorialHero";
 import TutorialOverview from "../../sections/tutorial/TutorialOverview";
-import BoardsSection from "../../sections/tutorial/BoardsSection";
+import TutorialAchievements from "../../sections/tutorial/TutorialAchievements";
 import SpecialPrograms from "../../sections/tutorial/SpecialPrograms";
-import WhyChooseTutorial from "../../sections/tutorial/WhyChooseTutorial";
+import FacilitiesInfrastructure from "../../sections/tutorial/FacilitiesInfrastructure";
 import TutorialCTA from "../../sections/tutorial/TutorialCTA";
 
 const Tutorial = () => {
@@ -10,9 +10,9 @@ const Tutorial = () => {
     <>
       <TutorialHero />
       <TutorialOverview />
-      <BoardsSection />
       <SpecialPrograms />
-      <WhyChooseTutorial />
+      <FacilitiesInfrastructure />
+      <TutorialAchievements />
       <TutorialCTA />
     </>
   );

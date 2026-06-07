@@ -1,25 +1,43 @@
 export const specialPrograms = [
   {
+    icon: "🏆",
     title: "Scholarship Preparation",
     description:
-      "Special guidance and preparation support for scholarship-oriented examinations and academic competitions.",
+      "Focused guidance for scholarship examinations that helps students develop analytical thinking, confidence, and academic excellence.",
   },
 
   {
-    title: "Olympiad Guidance",
+    icon: "🧠",
+    title: "Olympiad Training",
     description:
-      "Students receive conceptual training and problem-solving practice for Olympiad and aptitude examinations.",
+      "Concept-based preparation for Mathematics, Science, and aptitude Olympiads through structured problem-solving practice.",
   },
 
   {
-    title: "Board Exam Preparation",
+    icon: "📚",
+    title: "ISO / IMO Preparation",
     description:
-      "Structured academic planning and exam-focused preparation help students perform confidently in board examinations.",
+      "Dedicated support for International Science Olympiad and International Mathematics Olympiad examinations.",
   },
 
   {
-    title: "Revision & Practice Sessions",
+    icon: "🔢",
+    title: "Abacus Learning",
     description:
-      "Regular revision classes, doubt-solving sessions, and test practice help strengthen academic performance.",
+      "Enhances concentration, memory, calculation speed, and numerical confidence through systematic training.",
+  },
+
+  {
+    icon: "⚡",
+    title: "Vedic Maths",
+    description:
+      "Learn faster calculation techniques that improve speed, accuracy, and problem-solving efficiency.",
+  },
+
+  {
+    icon: "🎯",
+    title: "Academic Support System",
+    description:
+      "Special classes for slow learners, revision sessions, monthly performance reports, and regular parent-teacher interaction.",
   },
 ];
