@@ -1,61 +1,105 @@
+import classroomImage from "../../assets/tutorial/classroom.jpeg";
 import { specialPrograms } from "../../data/tutorial/specialPrograms";
 
 const SpecialPrograms = () => {
   return (
-    <section
-      className="py-24"
-      style={{
-        background:
-          "linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%)",
-      }}
-    >      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative overflow-hidden py-14 bg-slate-50">
+      {/* Background Image */}
+
+      <img
+        src={classroomImage}
+        alt=""
+        aria-hidden="true"
+        className="
+          absolute
+          inset-0
+          h-full
+          w-full
+          object-cover
+          opacity-[0.5]
+        "
+      />
+
+      {/* Optional Gradient Overlay */}
+
+      <div
+        className="
+          absolute
+          inset-0
+          bg-gradient-to-b
+          from-white/60
+          to-slate-50/80
+        "
+      />
+
+      {/* Content */}
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
 
         {/* Heading */}
-        <div className="text-center max-w-4xl mx-auto">
-          <p className="text-orange-500 font-semibold uppercase tracking-[0.2em]">
+
+        <div className="mx-auto max-w-3xl text-center">
+
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange-500">
             Special Programmes
           </p>
 
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold text-blue-950">
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold text-blue-950">
             Beyond Traditional Coaching
           </h2>
 
-          <p className="mt-6 text-lg text-slate-600 leading-relaxed">
-            Ideation focuses on building strong academic foundations through
-            concept-based learning, competitive examination preparation,
-            skill-development programmes, and continuous academic support.
+          <p className="mt-4 text-slate-600">
+            Concept-based learning, competitive examination preparation,
+            skill development and continuous academic support.
           </p>
+
         </div>
 
         {/* Cards */}
-        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 
           {specialPrograms.map((program) => (
             <div
               key={program.title}
               className="
-                bg-white
-                border border-slate-200
-                rounded-3xl
-                p-8
+                rounded-2xl
+                border
+                border-slate-200
+                bg-white/90
+                backdrop-blur-sm
+                p-5
                 shadow-sm
-                hover:shadow-xl
-                hover:-translate-y-1
                 transition-all
                 duration-300
+                hover:-translate-y-1
+                hover:border-orange-200
+                hover:shadow-lg
               "
             >
-              <div className="w-14 h-14 rounded-2xl bg-orange-100 flex items-center justify-center text-2xl">
+              <div
+                className="
+                  flex
+                  h-12
+                  w-12
+                  items-center
+                  justify-center
+                  rounded-xl
+                  bg-orange-100
+                  text-xl
+                "
+              >
                 {program.icon}
               </div>
 
-              <h3 className="mt-6 text-2xl font-bold text-blue-950">
+              <h3 className="mt-4 text-lg font-semibold text-blue-950">
                 {program.title}
               </h3>
 
-              <p className="mt-4 text-slate-600 leading-relaxed">
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">
                 {program.description}
               </p>
+
             </div>
           ))}
 

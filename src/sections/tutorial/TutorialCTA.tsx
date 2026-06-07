@@ -1,95 +1,96 @@
 import { Link } from "react-router-dom";
+import { Phone, MapPin } from "lucide-react";
 
 const TutorialCTA = () => {
   return (
-    <section className="py-24 bg-blue-950 text-white">
-
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-blue-950 py-14 text-white">
+      <div className="max-w-5xl mx-auto px-6">
 
         <div className="text-center">
 
-          <p className="text-orange-400 font-semibold uppercase tracking-wider">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-400">
             Admissions Open 2026
           </p>
 
-          <h2 className="mt-4 text-4xl lg:text-5xl font-bold leading-tight">
-
-            Start Your Academic
-            Journey With Ideation Tutorial
-
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold">
+            Start Your Academic Journey
+            <span className="block">
+              With Ideation Tutorial
+            </span>
           </h2>
 
-          <p className="mt-8 text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-
-            Join our concept-based coaching programs
-            designed to improve confidence,
-            academic performance,
-            and examination readiness.
-
+          <p className="mt-4 text-slate-300 max-w-2xl mx-auto">
+            Concept-based coaching for students from 8th to 12th
+            standard across IB, IGCSE, ICSE, CBSE and State Board curricula.
           </p>
 
           {/* Buttons */}
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
+
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
 
             <Link
               to="/contact"
-              className="bg-orange-500 hover:bg-orange-600 transition px-8 py-4 rounded-lg font-semibold text-white"
+              className="
+                rounded-xl
+                bg-orange-500
+                px-5
+                py-3
+                font-semibold
+                text-white
+                transition
+                hover:bg-orange-600
+              "
             >
               Enquire Now
             </Link>
 
-            <Link
-              to="/contact"
-              className="border border-white hover:bg-white hover:text-blue-950 transition px-8 py-4 rounded-lg font-semibold"
+            <a
+              href="tel:9657778471"
+              className="
+                inline-flex
+                items-center
+                gap-2
+                rounded-xl
+                border
+                border-white/20
+                bg-white/10
+                px-5
+                py-3
+                font-semibold
+                backdrop-blur-sm
+                transition
+                hover:bg-white/20
+              "
             >
-              Contact Us
-            </Link>
+              <Phone size={18} />
+              Call Us
+            </a>
 
           </div>
 
-          {/* Contact Grid */}
-          <div className="mt-14 grid sm:grid-cols-3 gap-8">
+          {/* Contact Info */}
 
-            <div>
-
-              <h3 className="text-2xl font-bold text-orange-400">
-                Free Demo
-              </h3>
-
-              <p className="mt-3 text-gray-300">
-                New Batches Starting Soon
-              </p>
-
+          <div
+            className="
+              mt-8
+              flex
+              flex-col
+              items-center
+              gap-3
+              text-slate-300
+            "
+          >
+            <div className="flex flex-wrap justify-center gap-4">
+              <span>+91 96577 78471</span>
+              <span>•</span>
+              <span>+91 90224 43373</span>
             </div>
 
-            <div>
-
-              <h3 className="text-2xl font-bold text-orange-400">
-                Contact
-              </h3>
-
-              <p className="mt-3 text-gray-300">
-                +91 9657778471
-              </p>
-
-              <p className="text-gray-300">
-                +91 9022443373
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-2xl font-bold text-orange-400">
-                Location
-              </h3>
-
-              <p className="mt-3 text-gray-300">
-                Ashok Colony,
-                Morshi Road,
-                Amravati
-              </p>
-
+            <div className="flex items-center gap-2">
+              <MapPin size={16} />
+              <span>
+                Ashok Colony, Morshi Road, Amravati
+              </span>
             </div>
 
           </div>
@@ -97,7 +98,6 @@ const TutorialCTA = () => {
         </div>
 
       </div>
-
     </section>
   );
 };

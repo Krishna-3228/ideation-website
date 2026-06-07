@@ -9,11 +9,10 @@ const features = [
 
 const TutorialOverview = () => {
   return (
-    <section className="py-24 bg-white">
-
+    <section className="bg-white py-14">
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
 
           {/* Image */}
 
@@ -23,10 +22,11 @@ const TutorialOverview = () => {
               alt="Classroom Learning"
               className="
                 w-full
+                h-[380px]
+                lg:h-[420px]
+                object-cover
                 rounded-3xl
                 shadow-xl
-                object-cover
-                h-[500px]
               "
             />
           </div>
@@ -35,37 +35,25 @@ const TutorialOverview = () => {
 
           <div>
 
-            <p className="text-blue-600 uppercase tracking-[0.25em] font-semibold">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">
               About Ideation Tutorial
             </p>
 
-            <h2 className="mt-4 text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-slate-900 leading-tight">
               Building Strong Academic Foundations
             </h2>
 
-            <p className="mt-8 text-lg text-slate-600 leading-relaxed">
-              Ideation Tutorial provides structured
-              coaching for students from 8th to 12th
-              standard across IB, IGCSE, ICSE,
-              CBSE and State Board curricula.
-            </p>
-
-            <p className="mt-6 text-lg text-slate-600 leading-relaxed">
-              Our focus is on conceptual clarity,
-              critical thinking and long-term academic
-              success rather than rote learning.
-            </p>
-
-            <p className="mt-6 text-lg text-slate-600 leading-relaxed">
-              Through experienced faculty,
-              continuous guidance and regular
-              evaluation, students develop confidence,
-              discipline and strong examination readiness.
+            <p className="mt-4 text-slate-600 leading-relaxed">
+              Ideation Tutorial provides structured coaching for students
+              from 8th to 12th standard across IB, IGCSE, ICSE, CBSE and
+              State Board curricula. Through concept-based learning,
+              experienced faculty and continuous mentorship, students
+              develop confidence, discipline and examination readiness.
             </p>
 
             {/* Features */}
 
-            <div className="mt-10 grid sm:grid-cols-2 gap-4">
+            <div className="mt-6 grid sm:grid-cols-2 gap-3">
 
               {features.map((feature) => (
                 <div
@@ -74,17 +62,17 @@ const TutorialOverview = () => {
                     flex
                     items-center
                     gap-3
-                    bg-slate-50
                     rounded-xl
-                    px-4
-                    py-4
+                    bg-slate-50
+                    px-3
+                    py-3
                   "
                 >
-                  <span className="text-green-600 text-xl">
+                  <span className="text-green-600 font-bold">
                     ✓
                   </span>
 
-                  <span className="font-medium text-slate-700">
+                  <span className="text-sm font-medium text-slate-700">
                     {feature}
                   </span>
                 </div>
@@ -97,7 +85,6 @@ const TutorialOverview = () => {
         </div>
 
       </div>
-
     </section>
   );
 };
