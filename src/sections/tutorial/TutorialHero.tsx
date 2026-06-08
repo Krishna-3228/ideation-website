@@ -56,7 +56,7 @@ const TutorialHero = () => {
               ))}
             </div>
 
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="hidden lg:flex mt-6 flex-wrap gap-3">
               <Link
                 to="/contact"
                 className="
@@ -106,6 +106,41 @@ const TutorialHero = () => {
                 shadow-xl
               "
             />
+
+            <div className="flex lg:hidden mt-6 flex-wrap gap-3">
+              <Link
+                to="/contact"
+                className="
+                  px-5
+                  py-2.5
+                  bg-blue-900
+                  text-white
+                  rounded-lg
+                  font-semibold
+                  hover:bg-blue-800
+                  transition
+                "
+              >
+                Enquire Now
+              </Link>
+
+              <Link
+                to="/contact"
+                className="
+                  px-5
+                  py-2.5
+                  border
+                  border-blue-900
+                  text-blue-900
+                  rounded-lg
+                  font-semibold
+                  hover:bg-blue-50
+                  transition
+                "
+              >
+                Contact Us
+              </Link>
+            </div>
           </div>
 
         </div>

@@ -117,7 +117,9 @@ const ContactForm = () => {
                     </h3>
 
                     <p className="text-sm text-slate-600 mt-1">
-                      ideation@example.com
+                      <a href="mailto:ideationtutorial@gmail.com" className="hover:text-blue-600 transition-colors">
+                        ideationtutorial@gmail.com
+                      </a>
                     </p>
                   </div>
 

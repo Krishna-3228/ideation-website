@@ -7,7 +7,6 @@ import Tutorial from "../pages/institutions/Tutorial";
 import IntegratedLearning from "../pages/institutions/IntegratedLearning";
 import Abhyasika from "../pages/institutions/Abhyasika";
 import TestSeries from "../pages/institutions/TestSeries";
-import Journal from "../pages/institutions/Journal";
 
 const AppRoutes = () => {
   return (
@@ -20,7 +19,6 @@ const AppRoutes = () => {
         <Route path="/institutions/integrated-learning" element={<IntegratedLearning />} />
         <Route path="/institutions/abhyasika" element={<Abhyasika />} />
         <Route path="/institutions/test-series" element={<TestSeries />} />
-        <Route path="/institutions/journal" element={<Journal />} />
       </Route>
     </Routes>
   );

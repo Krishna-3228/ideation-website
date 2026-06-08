@@ -9,7 +9,7 @@ const institutions = [
   { name: "Integrated Learning", path: "/institutions/integrated-learning" },
   { name: "Abhyasika", path: "/institutions/abhyasika" },
   { name: "Test Series", path: "/institutions/test-series" },
-  { name: "Journal", path: "/institutions/journal" },
+  { name: "Journal", path: "https://ijrws.com/index.php/ijrws/en/index", isExternal: true },
 ];
 
 const navLinks = [
@@ -73,15 +73,28 @@ export default function Navbar() {
 
               {/* Dropdown panel */}
               <div className="invisible absolute left-0 top-[calc(100%+0.5rem)] w-56 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl opacity-0 translate-y-2 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0">
-                {institutions.map((inst) => (
-                  <Link
-                    key={inst.path}
-                    to={inst.path}
-                    className="block px-5 py-3 text-sm text-slate-700 hover:bg-slate-50 hover:text-blue-700 transition-colors"
-                  >
-                    {inst.name}
-                  </Link>
-                ))}
+                {institutions.map((inst) => {
+                  const className = "block px-5 py-3 text-sm text-slate-700 hover:bg-slate-50 hover:text-blue-700 transition-colors";
+                  return inst.isExternal ? (
+                    <a
+                      key={inst.path}
+                      href={inst.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={className}
+                    >
+                      {inst.name}
+                    </a>
+                  ) : (
+                    <Link
+                      key={inst.path}
+                      to={inst.path}
+                      className={className}
+                    >
+                      {inst.name}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
 
@@ -146,16 +159,30 @@ export default function Navbar() {
 
               {institutionsOpen && (
                 <div className="ml-4 mt-1 space-y-1 border-l-2 border-slate-100 pl-3">
-                  {institutions.map((inst) => (
-                    <Link
-                      key={inst.path}
-                      to={inst.path}
-                      onClick={closeMobile}
-                      className="block px-3 py-2.5 rounded-lg text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-700 transition-colors"
-                    >
-                      {inst.name}
-                    </Link>
-                  ))}
+                  {institutions.map((inst) => {
+                    const className = "block px-3 py-2.5 rounded-lg text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-700 transition-colors";
+                    return inst.isExternal ? (
+                      <a
+                        key={inst.path}
+                        href={inst.path}
+                        onClick={closeMobile}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={className}
+                      >
+                        {inst.name}
+                      </a>
+                    ) : (
+                      <Link
+                        key={inst.path}
+                        to={inst.path}
+                        onClick={closeMobile}
+                        className={className}
+                      >
+                        {inst.name}
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
             </div>

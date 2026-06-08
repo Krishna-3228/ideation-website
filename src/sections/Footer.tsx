@@ -27,7 +27,7 @@ const Footer = () => {
             <li><Link to="/institutions/integrated-learning" className="hover:text-white transition">Integrated Learning</Link></li>
             <li><Link to="/institutions/abhyasika" className="hover:text-white transition">Ideation Abhyasika</Link></li>
             <li><Link to="/institutions/test-series" className="hover:text-white transition">Test Series</Link></li>
-            <li><Link to="/institutions/journal" className="hover:text-white transition">International Journal</Link></li>
+            <li><a href="https://ijrws.com/index.php/ijrws/en/index" className="hover:text-white transition" target="_blank" rel="noopener noreferrer">International Journal</a></li>
           </ul>
         </div>
 
@@ -44,8 +44,8 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="mailto:ideation@example.com" className="hover:text-white transition">
-                ✉ ideation@example.com
+              <a href="mailto:ideationtutorial@gmail.com" className="hover:text-white transition">
+                ✉ ideationtutorial@gmail.com
               </a>
             </li>
           </ul>

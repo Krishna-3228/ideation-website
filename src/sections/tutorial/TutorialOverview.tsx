@@ -16,7 +16,7 @@ const TutorialOverview = () => {
 
           {/* Image */}
 
-          <div>
+          <div className="order-2 lg:order-1">
             <img
               src={classroomImage}
               alt="Classroom Learning"
@@ -33,7 +33,7 @@ const TutorialOverview = () => {
 
           {/* Content */}
 
-          <div>
+          <div className="order-1 lg:order-2">
 
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">
               About Ideation Tutorial
