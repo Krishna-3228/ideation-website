@@ -1,358 +1,334 @@
-import { MapPin, Mail, Phone } from "lucide-react";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
-  return (
-    <section className="bg-slate-50 py-12">
-      <div className="max-w-5xl mx-auto px-4 sm:px-8 lg:px-12">
+    const [formData, setFormData] = useState({
+        fullName: "",
+        phone: "",
+        email: "",
+        institution: "Integrated Learning",
+        message: "",
+    });
 
-        <div className="grid lg:grid-cols-[0.75fr_1.25fr] gap-8 items-start">
+    const [isSending, setIsSending] = useState(false);
 
-          {/* LEFT SIDE */}
+    const [successMessage, setSuccessMessage] =
+        useState("");
 
-          <div>
+    const [errorMessage, setErrorMessage] =
+        useState("");
 
-            <p className="text-orange-500 font-semibold uppercase tracking-[0.2em] text-sm">
-              Contact Ideation Welfare Society
-            </p>
+    const handleChange = (
+        e: React.ChangeEvent<
+            HTMLInputElement |
+            HTMLTextAreaElement |
+            HTMLSelectElement
+        >
+    ) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
 
-            <h1 className="mt-3 text-2xl sm:text-4xl md:text-5xl font-bold text-slate-950 leading-tight">
-              Let&apos;s Start Your
-              <br />
-              Academic Journey
-            </h1>
+    const handleSubmit = async (
+        e: React.FormEvent<HTMLFormElement>
+    ) => {
+        e.preventDefault();
 
-            <p className="mt-5 text-slate-600 leading-relaxed">
-              Reach out for admissions, academic guidance,
-              institution enquiries and programme information.
-            </p>
+        setSuccessMessage("");
+        setErrorMessage("");
 
-            {/* Contact Cards */}
+        if (!/^\d{10}$/.test(formData.phone)) {
+            setErrorMessage(
+                "Please enter a valid 10-digit phone number."
+            );
+            return;
+        }
 
-            <div className="mt-8 space-y-4">
+        setIsSending(true);
 
-              {/* Phone */}
+        try {
+            await emailjs.send(
+                import.meta.env
+                    .VITE_EMAILJS_SERVICE_ID,
+                import.meta.env
+                    .VITE_EMAILJS_TEMPLATE_ID,
+                {
+                    fullName: formData.fullName,
+                    phone: formData.phone,
+                    email: formData.email,
+                    institution: formData.institution,
+                    message: formData.message,
+                },
+                import.meta.env
+                    .VITE_EMAILJS_PUBLIC_KEY
+            );
 
-              <div
-                className="
-                  bg-slate-100
-                  border
-                  border-slate-200
-                  rounded-2xl
-                  p-4 sm:p-5
-                  shadow-sm
-                "
-              >
-                <div className="flex items-start gap-2 sm:gap-3">
+            setSuccessMessage(
+                "Your enquiry has been submitted successfully. We will contact you shortly."
+            );
 
-                  <div
-                    className="
-                      h-10
-                      w-10
-                      rounded-xl
-                      bg-white
-                      flex
-                      items-center
-                      justify-center
-                      shadow-sm
-                    "
-                  >
-                    <Phone
-                      size={20}
-                      className="text-blue-600"
-                    />
-                  </div>
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
 
-                  <div>
-                    <h3 className="font-semibold text-slate-900">
-                      Call Us
-                    </h3>
+            setFormData({
+                fullName: "",
+                phone: "",
+                email: "",
+                institution: "Integrated Learning",
+                message: "",
+            });
+        } catch (error) {
+            console.error(error);
 
-                    <p className="text-sm text-slate-600 mt-1">
-                      +91 99601 26020
-                    </p>
+            setErrorMessage(
+                "Failed to send enquiry. Please try again later."
+            );
+        } finally {
+            setIsSending(false);
+        }
+    };
 
-                    <p className="text-sm text-slate-600">
-                      +91 90224 43373
-                    </p>
-                  </div>
-
-                </div>
-              </div>
-
-              {/* Email */}
-
-              <div
-                className="
-                  bg-slate-100
-                  border
-                  border-slate-200
-                  rounded-2xl
-                  p-4 sm:p-5
-                  shadow-sm
-                "
-              >
-                <div className="flex items-start gap-2 sm:gap-3">
-
-                  <div
-                    className="
-                      h-10
-                      w-10
-                      rounded-xl
-                      bg-white
-                      flex
-                      items-center
-                      justify-center
-                      shadow-sm
-                    "
-                  >
-                    <Mail
-                      size={20}
-                      className="text-blue-600"
-                    />
-                  </div>
-
-                  <div>
-                    <h3 className="font-semibold text-slate-900">
-                      Email
-                    </h3>
-
-                    <p className="text-sm text-slate-600 mt-1">
-                      <a href="mailto:ideationtutorial@gmail.com" className="hover:text-blue-600 transition-colors">
-                        ideationtutorial@gmail.com
-                      </a>
-                    </p>
-                  </div>
-
-                </div>
-              </div>
-
-              {/* Location */}
-
-              <div
-                className="
-                  bg-slate-100
-                  border
-                  border-slate-200
-                  rounded-2xl
-                  p-4 sm:p-5
-                  shadow-sm
-                "
-              >
-                <div className="flex items-start gap-2 sm:gap-3">
-
-                  <div
-                    className="
-                      h-10
-                      w-10
-                      rounded-xl
-                      bg-white
-                      flex
-                      items-center
-                      justify-center
-                      shadow-sm
-                    "
-                  >
-                    <MapPin
-                      size={20}
-                      className="text-blue-600"
-                    />
-                  </div>
-
-                  <div>
-                    <h3 className="font-semibold text-slate-900">
-                      Visit Us
-                    </h3>
-
-                    <p className="text-sm text-slate-600 mt-1">
-                      Ashok Colony,
-                      <br />
-                      Morshi Road,
-                      <br />
-                      Amravati
-                    </p>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-          {/* RIGHT SIDE */}
-
-          <div>
-
+    return (
+        <div>
             <div
-              className="
-                bg-blue-50
-                border
-                border-blue-100
-                rounded-2xl
-                shadow-lg
-                p-4 sm:p-6 md:p-8
-              "
+                className="
+          bg-blue-50
+          border
+          border-blue-100
+          rounded-2xl
+          shadow-lg
+          p-4
+          sm:p-6
+          md:p-8
+        "
             >
+                <h2 className="text-xl sm:text-3xl font-bold text-slate-950">
+                    Send Us Your Enquiry
+                </h2>
 
-              <h2 className="text-xl sm:text-3xl font-bold text-slate-950">
-                Send Us Your Enquiry
-              </h2>
+                <p className="mt-3 text-slate-600">
+                    Fill out the form below and our team
+                    will get back to you shortly.
+                </p>
 
-              <p className="mt-3 text-slate-600">
-                Fill out the form below and our team
-                will get back to you shortly.
-              </p>
+                {successMessage && (
+                    <div
+                        className="
+                            mt-6
+                            rounded-xl
+                            border
+                            border-green-200
+                            bg-green-50
+                            p-4
+                            text-green-700
+                        "
+                    >
+                        {successMessage}
+                    </div>
+                )}
 
-              <form className="mt-8 space-y-5">
+                {errorMessage && (
+                    <div
+                        className="
+              mt-6
+              rounded-xl
+              border
+              border-red-200
+              bg-red-50
+              p-4
+              text-red-700
+            "
+                    >
+                        {errorMessage}
+                    </div>
+                )}
 
-                <div>
-                  <label className="block mb-2 font-medium text-slate-900">
-                    Full Name
-                  </label>
-
-                  <input
-                    type="text"
-                    placeholder="Enter your name"
-                    className="
-                      w-full
-                      rounded-xl
-                      border
-                      border-slate-300
-                      bg-white
-                      px-4
-                      py-3
-                      focus:outline-none
-                      focus:ring-2
-                      focus:ring-blue-600
-                    "
-                  />
-                </div>
-
-                <div>
-                  <label className="block mb-2 font-medium text-slate-900">
-                    Phone Number
-                  </label>
-
-                  <input
-                    type="tel"
-                    placeholder="Enter phone number"
-                    className="
-                      w-full
-                      rounded-xl
-                      border
-                      border-slate-300
-                      bg-white
-                      px-4
-                      py-3
-                      focus:outline-none
-                      focus:ring-2
-                      focus:ring-blue-600
-                    "
-                  />
-                </div>
-
-                <div>
-                  <label className="block mb-2 font-medium text-slate-900">
-                    Email Address
-                  </label>
-
-                  <input
-                    type="email"
-                    placeholder="Enter email address"
-                    className="
-                      w-full
-                      rounded-xl
-                      border
-                      border-slate-300
-                      bg-white
-                      px-4
-                      py-3
-                      focus:outline-none
-                      focus:ring-2
-                      focus:ring-blue-600
-                    "
-                  />
-                </div>
-
-                <div>
-                  <label className="block mb-2 font-medium text-slate-900">
-                    Institution Interested In
-                  </label>
-
-                  <select
-                    className="
-                      w-full
-                      rounded-xl
-                      border
-                      border-slate-300
-                      bg-white
-                      px-4
-                      py-3
-                      focus:outline-none
-                      focus:ring-2
-                      focus:ring-blue-600
-                    "
-                  >
-                    <option>Integrated Learning</option>
-                    <option>Tutorial</option>
-                    <option>Test Series</option>
-                    <option>Abhyasika</option>
-                    <option>Journal</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block mb-2 font-medium text-slate-900">
-                    Message
-                  </label>
-
-                  <textarea
-                    rows={4}
-                    placeholder="Write your message..."
-                    className="
-                      w-full
-                      rounded-xl
-                      border
-                      border-slate-300
-                      bg-white
-                      px-4
-                      py-3
-                      resize-none
-                      focus:outline-none
-                      focus:ring-2
-                      focus:ring-blue-600
-                    "
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="
-                    w-full
-                    rounded-xl
-                    bg-blue-950
-                    px-6
-                    py-3
-                    font-semibold
-                    text-white
-                    transition
-                    hover:bg-blue-900
-                  "
+                <form
+                    onSubmit={handleSubmit}
+                    className="mt-8 space-y-5"
                 >
-                  Submit Enquiry
-                </button>
+                    <div>
+                        <label className="block mb-2 font-medium text-slate-900">
+                            Full Name
+                        </label>
 
-              </form>
+                        <input
+                            type="text"
+                            name="fullName"
+                            required
+                            value={formData.fullName}
+                            onChange={handleChange}
+                            placeholder="Enter your name"
+                            className="
+                w-full
+                rounded-xl
+                border
+                border-slate-300
+                bg-white
+                px-4
+                py-3
+                focus:outline-none
+                focus:ring-2
+                focus:ring-blue-600
+              "
+                        />
+                    </div>
 
+                    <div>
+                        <label className="block mb-2 font-medium text-slate-900">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            name="phone"
+                            required
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder="Enter phone number"
+                            className="
+                w-full
+                rounded-xl
+                border
+                border-slate-300
+                bg-white
+                px-4
+                py-3
+                focus:outline-none
+                focus:ring-2
+                focus:ring-blue-600
+              "
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block mb-2 font-medium text-slate-900">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            required
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="Enter email address"
+                            className="
+                w-full
+                rounded-xl
+                border
+                border-slate-300
+                bg-white
+                px-4
+                py-3
+                focus:outline-none
+                focus:ring-2
+                focus:ring-blue-600
+              "
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block mb-2 font-medium text-slate-900">
+                            Institution Interested In
+                        </label>
+
+                        <select
+                            name="institution"
+                            value={formData.institution}
+                            onChange={handleChange}
+                            className="
+                w-full
+                rounded-xl
+                border
+                border-slate-300
+                bg-white
+                px-4
+                py-3
+                focus:outline-none
+                focus:ring-2
+                focus:ring-blue-600
+              "
+                        >
+                            <option value="Integrated Learning">
+                                Integrated Learning
+                            </option>
+
+                            <option value="Tutorial">
+                                Tutorial
+                            </option>
+
+                            <option value="Test Series">
+                                Test Series
+                            </option>
+
+                            <option value="Abhyasika">
+                                Abhyasika
+                            </option>
+
+                            <option value="Journal">
+                                Journal
+                            </option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label className="block mb-2 font-medium text-slate-900">
+                            Message
+                        </label>
+
+                        <textarea
+                            rows={4}
+                            name="message"
+                            required
+                            value={formData.message}
+                            onChange={handleChange}
+                            placeholder="Write your message..."
+                            className="
+                w-full
+                rounded-xl
+                border
+                border-slate-300
+                bg-white
+                px-4
+                py-3
+                resize-none
+                focus:outline-none
+                focus:ring-2
+                focus:ring-blue-600
+              "
+                        />
+                    </div>
+
+                    <button
+                        type="submit"
+                        disabled={isSending}
+                        className="
+              w-full
+              rounded-xl
+              bg-blue-950
+              px-6
+              py-3
+              font-semibold
+              text-white
+              transition
+              hover:bg-blue-900
+              disabled:opacity-50
+              disabled:cursor-not-allowed
+            "
+                    >
+                        {isSending
+                            ? "Sending..."
+                            : "Submit Enquiry"}
+                    </button>
+                </form>
             </div>
-
-          </div>
-
         </div>
-
-      </div>
-    </section>
-  );
+    );
 };
 
 export default ContactForm;
