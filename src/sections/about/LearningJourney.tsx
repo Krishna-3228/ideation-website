@@ -136,9 +136,9 @@ export default function LearningJourneySection() {
           })}
         </div>
 
-        {/* Mobile Stack */}
+        {/* Mobile/Tablet Stack */}
 
-        <div className="space-y-4 lg:hidden">
+        <div className="grid gap-4 sm:grid-cols-2 lg:hidden">
           {journey.map((item) => {
             const Icon = item.icon;
 

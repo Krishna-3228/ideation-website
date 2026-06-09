@@ -8,7 +8,7 @@ export default function AboutHeroSection() {
 
                 <div className="max-w-4xl">
 
-                    <h1 className="text-5xl font-bold leading-tight text-blue-950 md:text-6xl">
+                    <h1 className="text-4xl sm:text-5xl font-bold leading-tight text-blue-950 md:text-6xl">
                         Education Is About
                         <span className="block">
                             Learning How To Think.

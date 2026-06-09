@@ -124,56 +124,58 @@ export default function EducationalPhilosophySection() {
 
         </div>
 
-        {/* Mobile Timeline */}
+        {/* Mobile/Tablet Vertical Timeline */}
 
-        <div className="space-y-4 lg:hidden">
-
-          {philosophy.map((item) => {
+        <div className="flex flex-col items-center lg:hidden">
+          {philosophy.map((item, index) => {
             const Icon = item.icon;
 
             return (
               <div
                 key={item.title}
-                className="
-                  flex
-                  gap-4
-                  rounded-2xl
-                  bg-white
-                  p-5
-                  shadow-sm
-                "
+                className="flex flex-col items-center w-full max-w-xs text-center"
               >
+                {/* Circular Badge */}
                 <div
                   className="
                     flex
-                    h-12
-                    w-12
-                    shrink-0
+                    h-16
+                    w-16
                     items-center
                     justify-center
-                    rounded-xl
-                    bg-orange-100
+                    rounded-full
+                    bg-white
+                    shadow-sm
                   "
                 >
                   <Icon
-                    size={22}
+                    size={28}
                     className="text-orange-500"
                   />
                 </div>
 
-                <div>
-                  <h3 className="mb-1 text-lg font-semibold text-blue-950">
-                    {item.title}
-                  </h3>
+                <h3 className="mt-3 text-lg font-semibold text-blue-950">
+                  {item.title}
+                </h3>
 
-                  <p className="text-sm text-slate-600">
-                    {item.description}
-                  </p>
-                </div>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  {item.description}
+                </p>
+
+                {/* Connector Line */}
+                {index < philosophy.length - 1 && (
+                  <div
+                    className="
+                      my-4
+                      h-8
+                      w-[2px]
+                      bg-slate-300
+                    "
+                  />
+                )}
               </div>
             );
           })}
-
         </div>
 
       </div>

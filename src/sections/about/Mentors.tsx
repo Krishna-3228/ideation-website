@@ -119,7 +119,7 @@ export default function MentorsSection() {
 
               {/* TWO COLUMN CONTENT */}
 
-              <div className="mt-5 grid grid-cols-2 gap-5">
+              <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-5">
 
                 {/* LEFT */}
 

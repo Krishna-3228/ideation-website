@@ -98,10 +98,6 @@ export default function Navbar() {
               </div>
             </div>
 
-            <a href="#achievements" className="text-sm font-medium hover:text-blue-700 transition-colors">
-              Achievements
-            </a>
-
             <a href="#life" className="text-sm font-medium hover:text-blue-700 transition-colors">
               Life at Ideation
             </a>
