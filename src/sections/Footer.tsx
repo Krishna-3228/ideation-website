@@ -53,8 +53,37 @@ const Footer = () => {
 
       </div>
 
-      <div className="border-t border-gray-800 py-5 text-center text-xs text-gray-500">
-        © {new Date().getFullYear()} Ideation Welfare Society. All rights reserved.
+      <div className="border-t border-gray-800 py-5">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-500">
+
+          <p>
+            © {new Date().getFullYear()} Ideation Welfare Society. All rights reserved.
+          </p>
+
+          <div className="text-center md:text-right">
+            <p>
+              Website Designed & Developed by{" "}
+              <span className="text-gray-300 font-medium">
+                Keshav Gupta
+              </span>
+            </p>
+
+            <p>
+              Hosted by{" "}
+              <span className="text-gray-300 font-medium">
+                Sthira Hosting
+              </span>
+              {" • "}
+              <a
+                href="tel:+917709804830"
+                className="hover:text-white transition"
+              >
+                +91 7709804830
+              </a>
+            </p>
+          </div>
+
+        </div>
       </div>
 
     </footer>

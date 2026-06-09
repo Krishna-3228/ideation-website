@@ -1,7 +1,7 @@
 import TestSeriesHero from "../../sections/test-series/TestSeriesHero";
 import WhyTestSeriesSection from "../../sections/test-series/WhyTestSeriesSection";
 import HowOurTestSeriesWorksSection from "../../sections/test-series/HowOurTestSeriesWorkssection";
-import WhyChooseIdeationSection from "../../sections/test-series/WhyChooseIdeathonSection";
+import TestSeriesTimetableSection from "../../sections/test-series/TestSeriesTimeTable";
 import StudentResultsSection from "../../sections/test-series/StudentResults";
 import AdmissionCTA from "../../sections/test-series/TestSeriesCTASection"
 const TestSeries = () => {
@@ -10,7 +10,7 @@ const TestSeries = () => {
       <TestSeriesHero />
       <WhyTestSeriesSection />
       <HowOurTestSeriesWorksSection />
-      <WhyChooseIdeationSection />
+      <TestSeriesTimetableSection />
       <StudentResultsSection />
       <AdmissionCTA />
     </>

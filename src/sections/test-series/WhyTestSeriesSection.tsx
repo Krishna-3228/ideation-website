@@ -87,6 +87,35 @@ export default function WhyTestSeriesSection() {
                 ))}
               </div>
             </div>
+            <div className="mt-6 grid grid-cols-2 gap-4">
+              {[
+                "SSC Pattern Tests",
+                "Chapter-wise Tests",
+                "Revision Tests",
+                "Performance Reports",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="
+        flex
+        items-center
+        gap-3
+        rounded-xl
+        border
+        border-slate-200
+        bg-slate-50
+        px-4
+        py-3
+      "
+                >
+                  <span className="h-2.5 w-2.5 rounded-full bg-orange-400" />
+
+                  <span className="text-sm font-medium text-slate-700">
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Right */}
