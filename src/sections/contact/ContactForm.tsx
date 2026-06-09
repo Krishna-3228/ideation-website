@@ -6,7 +6,10 @@ const ContactForm = () => {
         fullName: "",
         phone: "",
         email: "",
-        institution: "Integrated Learning",
+        institution: "",
+        classLevel: "",
+        testSeriesType: "",
+        currentSchool: "",
         message: "",
     });
 
@@ -25,9 +28,23 @@ const ContactForm = () => {
             HTMLSelectElement
         >
     ) => {
+        const { name, value } = e.target;
+
+        if (name === "institution") {
+            setFormData({
+                ...formData,
+                institution: value,
+                classLevel: "",
+                testSeriesType: "",
+                currentSchool: "",
+            });
+
+            return;
+        }
+
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value,
+            [name]: value,
         });
     };
 
@@ -46,23 +63,86 @@ const ContactForm = () => {
             return;
         }
 
+        if (!formData.institution) {
+            setErrorMessage(
+                "Please select an institution."
+            );
+            return;
+        }
+
+        if (
+            formData.institution === "Tutorial" &&
+            !formData.classLevel
+        ) {
+            setErrorMessage(
+                "Please select a class."
+            );
+            return;
+        }
+
+        if (
+            formData.institution === "Integrated Learning" &&
+            !formData.classLevel
+        ) {
+            setErrorMessage(
+                "Please select a class."
+            );
+            return;
+        }
+
+        if (
+            formData.institution === "Test Series" &&
+            !formData.testSeriesType
+        ) {
+            setErrorMessage(
+                "Please select a board."
+            );
+            return;
+        }
+
         setIsSending(true);
 
         try {
+            const enquiryDetails: string[] = [];
+
+            enquiryDetails.push(
+                `Institution: ${formData.institution}`
+            );
+
+            if (formData.classLevel) {
+                enquiryDetails.push(
+                    `Class: ${formData.classLevel}`
+                );
+            }
+
+            if (formData.currentSchool.trim()) {
+                enquiryDetails.push(
+                    `Current School: ${formData.currentSchool}`
+                );
+            }
+
+            if (formData.testSeriesType) {
+                enquiryDetails.push(
+                    `Board: ${formData.testSeriesType}`
+                );
+            }
+
+            if (formData.message.trim()) {
+                enquiryDetails.push(
+                    `Message: ${formData.message}`
+                );
+            }
             await emailjs.send(
-                import.meta.env
-                    .VITE_EMAILJS_SERVICE_ID,
-                import.meta.env
-                    .VITE_EMAILJS_TEMPLATE_ID,
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
                 {
                     fullName: formData.fullName,
                     phone: formData.phone,
                     email: formData.email,
-                    institution: formData.institution,
-                    message: formData.message,
+                    enquiryDetails:
+                        enquiryDetails.join("\n\n"),
                 },
-                import.meta.env
-                    .VITE_EMAILJS_PUBLIC_KEY
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
             );
 
             setSuccessMessage(
@@ -78,7 +158,10 @@ const ContactForm = () => {
                 fullName: "",
                 phone: "",
                 email: "",
-                institution: "Integrated Learning",
+                institution: "",
+                classLevel: "",
+                testSeriesType: "",
+                currentSchool: "",
                 message: "",
             });
         } catch (error) {
@@ -96,23 +179,23 @@ const ContactForm = () => {
         <div>
             <div
                 className="
-          bg-blue-50
-          border
-          border-blue-100
-          rounded-2xl
-          shadow-lg
-          p-4
-          sm:p-6
-          md:p-8
-        "
+                    bg-blue-50
+                    border
+                    border-blue-100
+                    rounded-2xl
+                    shadow-lg
+                    p-4
+                    sm:p-6
+                    md:p-8
+                "
             >
                 <h2 className="text-xl sm:text-3xl font-bold text-slate-950">
                     Send Us Your Enquiry
                 </h2>
 
                 <p className="mt-3 text-slate-600">
-                    Fill out the form below and our team
-                    will get back to you shortly.
+                    Fill out the form below and our
+                    team will get back to you shortly.
                 </p>
 
                 {successMessage && (
@@ -134,14 +217,14 @@ const ContactForm = () => {
                 {errorMessage && (
                     <div
                         className="
-              mt-6
-              rounded-xl
-              border
-              border-red-200
-              bg-red-50
-              p-4
-              text-red-700
-            "
+                            mt-6
+                            rounded-xl
+                            border
+                            border-red-200
+                            bg-red-50
+                            p-4
+                            text-red-700
+                        "
                     >
                         {errorMessage}
                     </div>
@@ -164,17 +247,17 @@ const ContactForm = () => {
                             onChange={handleChange}
                             placeholder="Enter your name"
                             className="
-                w-full
-                rounded-xl
-                border
-                border-slate-300
-                bg-white
-                px-4
-                py-3
-                focus:outline-none
-                focus:ring-2
-                focus:ring-blue-600
-              "
+                                w-full
+                                rounded-xl
+                                border
+                                border-slate-300
+                                bg-white
+                                px-4
+                                py-3
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-blue-600
+                            "
                         />
                     </div>
 
@@ -191,17 +274,17 @@ const ContactForm = () => {
                             onChange={handleChange}
                             placeholder="Enter phone number"
                             className="
-                w-full
-                rounded-xl
-                border
-                border-slate-300
-                bg-white
-                px-4
-                py-3
-                focus:outline-none
-                focus:ring-2
-                focus:ring-blue-600
-              "
+                                w-full
+                                rounded-xl
+                                border
+                                border-slate-300
+                                bg-white
+                                px-4
+                                py-3
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-blue-600
+                            "
                         />
                     </div>
 
@@ -218,17 +301,17 @@ const ContactForm = () => {
                             onChange={handleChange}
                             placeholder="Enter email address"
                             className="
-                w-full
-                rounded-xl
-                border
-                border-slate-300
-                bg-white
-                px-4
-                py-3
-                focus:outline-none
-                focus:ring-2
-                focus:ring-blue-600
-              "
+                                w-full
+                                rounded-xl
+                                border
+                                border-slate-300
+                                bg-white
+                                px-4
+                                py-3
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-blue-600
+                            "
                         />
                     </div>
 
@@ -242,18 +325,22 @@ const ContactForm = () => {
                             value={formData.institution}
                             onChange={handleChange}
                             className="
-                w-full
-                rounded-xl
-                border
-                border-slate-300
-                bg-white
-                px-4
-                py-3
-                focus:outline-none
-                focus:ring-2
-                focus:ring-blue-600
-              "
+                                w-full
+                                rounded-xl
+                                border
+                                border-slate-300
+                                bg-white
+                                px-4
+                                py-3
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-blue-600
+                            "
                         >
+                            <option value="">
+                                Select Institution
+                            </option>
+
                             <option value="Integrated Learning">
                                 Integrated Learning
                             </option>
@@ -276,31 +363,245 @@ const ContactForm = () => {
                         </select>
                     </div>
 
+                    {/* Integrated Learning */}
+
+                    {formData.institution ===
+                        "Integrated Learning" && (
+                            <>
+                                <div>
+                                    <label className="block mb-2 font-medium text-slate-900">
+                                        Class
+                                    </label>
+
+                                    <select
+                                        name="classLevel"
+                                        value={
+                                            formData.classLevel
+                                        }
+                                        onChange={
+                                            handleChange
+                                        }
+                                        className="
+                                        w-full
+                                        rounded-xl
+                                        border
+                                        border-slate-300
+                                        bg-white
+                                        px-4
+                                        py-3
+                                        focus:outline-none
+                                        focus:ring-2
+                                        focus:ring-blue-600
+                                    "
+                                    >
+                                        <option value="">
+                                            Select Class
+                                        </option>
+
+                                        <option value="5th">
+                                            5th
+                                        </option>
+
+                                        <option value="6th">
+                                            6th
+                                        </option>
+
+                                        <option value="7th">
+                                            7th
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label className="block mb-2 font-medium text-slate-900">
+                                        Current School
+                                        (Optional)
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        name="currentSchool"
+                                        value={
+                                            formData.currentSchool
+                                        }
+                                        onChange={
+                                            handleChange
+                                        }
+                                        placeholder="Enter current school"
+                                        className="
+                                        w-full
+                                        rounded-xl
+                                        border
+                                        border-slate-300
+                                        bg-white
+                                        px-4
+                                        py-3
+                                        focus:outline-none
+                                        focus:ring-2
+                                        focus:ring-blue-600
+                                    "
+                                    />
+                                </div>
+                            </>
+                        )}
+
+                    {/* Tutorial */}
+
+                    {formData.institution ===
+                        "Tutorial" && (
+                            <>
+                                <div>
+                                    <label className="block mb-2 font-medium text-slate-900">
+                                        Class
+                                    </label>
+
+                                    <select
+                                        name="classLevel"
+                                        value={
+                                            formData.classLevel
+                                        }
+                                        onChange={
+                                            handleChange
+                                        }
+                                        className="
+                                        w-full
+                                        rounded-xl
+                                        border
+                                        border-slate-300
+                                        bg-white
+                                        px-4
+                                        py-3
+                                        focus:outline-none
+                                        focus:ring-2
+                                        focus:ring-blue-600
+                                    "
+                                    >
+                                        <option value="">
+                                            Select Class
+                                        </option>
+
+                                        <option value="8th">
+                                            8th
+                                        </option>
+
+                                        <option value="9th">
+                                            9th
+                                        </option>
+
+                                        <option value="10th">
+                                            10th
+                                        </option>
+
+                                        <option value="11th">
+                                            11th
+                                        </option>
+
+                                        <option value="12th">
+                                            12th
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label className="block mb-2 font-medium text-slate-900">
+                                        Current School
+                                        (Optional)
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        name="currentSchool"
+                                        value={
+                                            formData.currentSchool
+                                        }
+                                        onChange={
+                                            handleChange
+                                        }
+                                        placeholder="Enter current school"
+                                        className="
+                                        w-full
+                                        rounded-xl
+                                        border
+                                        border-slate-300
+                                        bg-white
+                                        px-4
+                                        py-3
+                                        focus:outline-none
+                                        focus:ring-2
+                                        focus:ring-blue-600
+                                    "
+                                    />
+                                </div>
+                            </>
+                        )}
+
+                    {/* Test Series */}
+
+                    {formData.institution ===
+                        "Test Series" && (
+                            <div>
+                                <label className="block mb-2 font-medium text-slate-900">
+                                    Board
+                                </label>
+
+                                <select
+                                    name="testSeriesType"
+                                    value={
+                                        formData.testSeriesType
+                                    }
+                                    onChange={handleChange}
+                                    className="
+                                    w-full
+                                    rounded-xl
+                                    border
+                                    border-slate-300
+                                    bg-white
+                                    px-4
+                                    py-3
+                                    focus:outline-none
+                                    focus:ring-2
+                                    focus:ring-blue-600
+                                "
+                                >
+                                    <option value="">
+                                        Select Board
+                                    </option>
+
+                                    <option value="CBSE">
+                                        CBSE
+                                    </option>
+
+                                    <option value="State Board">
+                                        State Board
+                                    </option>
+                                </select>
+                            </div>
+                        )}
+
                     <div>
                         <label className="block mb-2 font-medium text-slate-900">
-                            Message
+                            Message (Optional)
                         </label>
 
                         <textarea
                             rows={4}
                             name="message"
-                            required
                             value={formData.message}
                             onChange={handleChange}
                             placeholder="Write your message..."
                             className="
-                w-full
-                rounded-xl
-                border
-                border-slate-300
-                bg-white
-                px-4
-                py-3
-                resize-none
-                focus:outline-none
-                focus:ring-2
-                focus:ring-blue-600
-              "
+                                w-full
+                                rounded-xl
+                                border
+                                border-slate-300
+                                bg-white
+                                px-4
+                                py-3
+                                resize-none
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-blue-600
+                            "
                         />
                     </div>
 
@@ -308,18 +609,18 @@ const ContactForm = () => {
                         type="submit"
                         disabled={isSending}
                         className="
-              w-full
-              rounded-xl
-              bg-blue-950
-              px-6
-              py-3
-              font-semibold
-              text-white
-              transition
-              hover:bg-blue-900
-              disabled:opacity-50
-              disabled:cursor-not-allowed
-            "
+                            w-full
+                            rounded-xl
+                            bg-blue-950
+                            px-6
+                            py-3
+                            font-semibold
+                            text-white
+                            transition
+                            hover:bg-blue-900
+                            disabled:opacity-50
+                            disabled:cursor-not-allowed
+                        "
                     >
                         {isSending
                             ? "Sending..."
