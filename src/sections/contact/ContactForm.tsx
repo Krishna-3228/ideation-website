@@ -103,44 +103,75 @@ const ContactForm = () => {
         setIsSending(true);
 
         try {
-            const enquiryDetails: string[] = [];
-
-            enquiryDetails.push(
-                `Institution: ${formData.institution}`
+            const submittedAt = new Date().toLocaleString(
+                "en-IN",
+                {
+                    dateStyle: "medium",
+                    timeStyle: "short",
+                }
             );
 
-            if (formData.classLevel) {
-                enquiryDetails.push(
-                    `Class: ${formData.classLevel}`
-                );
-            }
+            const enquiryDetailsHtml = `
+                <tr>
+                <td class="label">Institution</td>
+                <td class="value">${formData.institution}</td>
+                </tr>
 
-            if (formData.currentSchool.trim()) {
-                enquiryDetails.push(
-                    `Current School: ${formData.currentSchool}`
-                );
-            }
+                ${
+                formData.classLevel
+                    ? `
+                <tr>
+                <td class="label">Class</td>
+                <td class="value">${formData.classLevel}</td>
+                </tr>`
+                    : ""
+                }
 
-            if (formData.testSeriesType) {
-                enquiryDetails.push(
-                    `Board: ${formData.testSeriesType}`
-                );
-            }
+                ${
+                formData.currentSchool
+                    ? `
+                <tr>
+                <td class="label">Current School</td>
+                <td class="value">${formData.currentSchool}</td>
+                </tr>`
+                    : ""
+                }
 
-            if (formData.message.trim()) {
-                enquiryDetails.push(
-                    `Message: ${formData.message}`
-                );
-            }
+                ${
+                formData.testSeriesType
+                    ? `
+                <tr>
+                <td class="label">Board</td>
+                <td class="value">${formData.testSeriesType}</td>
+                </tr>`
+                    : ""
+                }
+
+                <tr>
+                <td class="label">Message</td>
+                <td class="value">${
+                    formData.message || "No message provided"
+                }</td>
+                </tr>
+                `;
+
             await emailjs.send(
                 import.meta.env.VITE_EMAILJS_SERVICE_ID,
                 import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
                 {
+                    // Student Details
+
                     fullName: formData.fullName,
-                    phone: formData.phone,
                     email: formData.email,
-                    enquiryDetails:
-                        enquiryDetails.join("\n\n"),
+                    phone: formData.phone,
+
+                    // Enquiry Details
+
+                    enquiryDetailsHtml,
+
+                    // Meta
+
+                    submittedAt,
                 },
                 import.meta.env.VITE_EMAILJS_PUBLIC_KEY
             );
@@ -164,13 +195,15 @@ const ContactForm = () => {
                 currentSchool: "",
                 message: "",
             });
-        } catch (error) {
+        }
+        catch (error) {
             console.error(error);
 
             setErrorMessage(
                 "Failed to send enquiry. Please try again later."
             );
-        } finally {
+        }
+        finally {
             setIsSending(false);
         }
     };
