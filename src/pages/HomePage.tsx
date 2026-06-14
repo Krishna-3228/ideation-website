@@ -2,7 +2,7 @@ import HeroSection from "../sections/HeroSection";
 import AboutSection from "../sections/AboutSection";
 import InstitutionsSection from "../sections/InstitutionsSection";
 import AchievementsSection from "../sections/AchievementsSection";
-import LifeAtIdeationSection from "../sections/LifeAtIdeationSection";
+import LifeAtIdeationSection from "./LifeAtIdeationPage";
 import ContactCTASection from "../sections/ContactCTASection";
 
 

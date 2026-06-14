@@ -14,8 +14,7 @@ const institutions = [
 
 const navLinks = [
   { label: "About", href: "/about" },
-  { label: "Achievements", href: "#achievements" },
-  { label: "Life at Ideation", href: "#life" },
+  { label: "Life at Ideation", href: "/lifeatideation" },
 ];
 
 export default function Navbar() {
@@ -98,9 +97,9 @@ export default function Navbar() {
               </div>
             </div>
 
-            <a href="#life" className="text-sm font-medium hover:text-blue-700 transition-colors">
+            <Link to="/lifeatideation" className="text-sm font-medium hover:text-blue-700 transition-colors">
               Life at Ideation
-            </a>
+            </Link>
 
             <Link
               to="/contact"

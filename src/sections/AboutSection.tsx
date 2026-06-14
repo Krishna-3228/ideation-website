@@ -1,7 +1,7 @@
 import SectionHeading from "../components/SectionHeading";
 
 import classroomImg from "../assets/about/classroom.jpg";
-import activityImg from "../assets/about/activity.jpeg";
+import activityImg from "../assets/about/cricket.jpeg";
 import studentsImg from "../assets/about/students.jpeg";
 
 const stats = [
